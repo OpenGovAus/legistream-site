@@ -1,0 +1,15 @@
+{% extends "legistream/global.html" %}
+{% block content %}
+    <h1>{{ parl }} Parliament</h1>
+    <div id="streams">
+        {% if stream_urls %}
+            {% for stream in stream_urls%}
+                <p>{{ stream.title }}</p>
+                <a href="{{ stream.url }}">{{ stream.url }}</a>
+            {% endfor %}
+        {% else %}
+            <p>This parliament is not currently broadcasting.</p>
+        {% endif %}
+    </div>
+    <a href="/">Home</a>
+{% endblock content %}
