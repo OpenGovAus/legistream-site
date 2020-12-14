@@ -22,23 +22,23 @@ a {
 #logo-text {
     font-family: gilroy;
     font-size: 88px;
-    color: rgb(180,180,180);
+    color: rgb(223, 223, 223);
     left: 20px;
     top: 10px;
     position: absolute;
 }
 
 #parl-dropdown {
-    font-size: 40px;
-    right: 45px;
-    top: 39px;
+    font-size: 30px;
+    right: 55px;
+    top: 45px;
     position: absolute;
 }
 
 .main-point {
     font-family: dosis;
     font-size: 25px;
-    color: rgb(180,180,180);
+    color: rgb(223, 223, 223);
     position: relative;
 }
 
@@ -51,6 +51,13 @@ a {
     position: absolute;
     bottom: 15px;
     left: 20px;
+}
+
+.header {
+    font-family: dosis;
+    font-size: 35px;
+    color: rgb(223, 223, 223);
+    position: relative;
 }
 
 #live-parls {

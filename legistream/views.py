@@ -1,6 +1,26 @@
 from django.shortcuts import render
 
 def home(request):
+    ''' Notes so I don't forget things:
+    from . import fed
+    from . import act
+    from . import wa
+    from . import nt
+    from . import nsw
+    from . import qld
+
+    This alone takes 7 - 13 seconds (with no-cache refresh) and is completely left to the mercy of the
+    speed of parliament(s)' servers. 
+    Can I get this to run in the background every [2 mins] somehow? If the server doesn't have to slow down
+    to return a boolean live value, UX would probably be - for lack of a better term - better...
+    Goal: run through each parliament, check if it's live, and return data like this:
+
+    {
+        parl: 'parl-title (QLD or something)',
+        live: True/False
+    }
+    '''
+
     return(render(request, 'legistream/homepage.html'))
 
 def act(request):
