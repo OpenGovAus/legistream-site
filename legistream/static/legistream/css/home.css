@@ -1,0 +1,76 @@
+@font-face {
+    font-family: 'gilroy';
+    src: url('../fonts/Gilroy-ExtraBold.otf');
+}
+
+@font-face {
+    font-family: 'dosis';
+    src: url('../fonts/dosis.ttf');
+}
+
+html {
+    background-image: url('../img/bg-parl.png');
+    background-repeat: no-repeat;
+    background-size:cover;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+#logo-text {
+    font-family: gilroy;
+    font-size: 88px;
+    color: rgb(180,180,180);
+    left: 20px;
+    top: 10px;
+    position: absolute;
+}
+
+#parl-dropdown {
+    font-size: 40px;
+    right: 45px;
+    top: 39px;
+    position: absolute;
+}
+
+.main-point {
+    font-family: dosis;
+    font-size: 25px;
+    color: rgb(180,180,180);
+    position: relative;
+}
+
+.logo {
+    height: 25px;
+    padding-right: 7px;
+}
+
+#lower-bar {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+}
+
+#live-parls {
+    position: absolute;
+    left: 30px;
+    top: 100px;
+}
+
+.dropdown-list {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-item {
+    display: none;
+    position: absolute;
+    background-color: teal;
+}
+
+.dropdown-item a {
+    color: white;
+    display: block;
+}

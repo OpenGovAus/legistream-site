@@ -1,0 +1,39 @@
+.stream-thumb {
+    width: 720px;
+    padding: 10px;
+    padding-bottom: 25px;
+}
+
+.heading {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    padding-bottom: 15px;
+    padding-left: 25px;
+    border-radius: 300px;
+}
+
+.stream-title {
+    font-weight: bold;
+}
+
+div {
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.id-hook {
+    padding: 10px;
+    font-size: x-large;
+    color: orange;
+}
+
+body {
+    color: white;
+    background-color: rgb(29,29,29);
+}
+
+.btn {
+    color: black;
+    background-color: white;
+}

@@ -1,15 +1,25 @@
 {% extends "legistream/global.html" %}
+{% load static %}
+
+{% block headcontent %}
+    <link rel="stylesheet" href="{% static 'legistream/css/stream_page.css' %}">
+{% endblock headcontent%}
+
 {% block content %}
-    <h1>{{ parl }} Parliament</h1>
+    <div>
+        <h1 class="heading">{{ parl }} Parliament</h1>
+    </div>
     <div id="streams">
         {% if stream_urls %}
             {% for stream in stream_urls%}
-                <p>{{ stream.title }}</p>
-                <a href="{{ stream.url }}">{{ stream.url }}</a>
+                <div class="stream-block">
+                    <p class="stream-title"><class="id-hook" id="{{ stream.title }}"></a>{{ stream.title }}</p>
+                    <a href="{{ stream.url }}" ><img class="stream-thumb" src="{% static 'legistream/img/16x9placeholder.jpg' %}"></a>
+                </div>
             {% endfor %}
         {% else %}
             <p>This parliament is not currently broadcasting.</p>
         {% endif %}
     </div>
-    <a href="/">Home</a>
+    <a href="/" class="btn">Home</a>
 {% endblock content %}

@@ -1,12 +1,37 @@
-{% extends "legistream/global.html" %}
-{% block content %}
-    <h1>Legistream Home</h1>
-    <a href="/act">Australian Capital Territory</a>
-    <a href="/federal">Federal</a>
-    <a href="/nsw">New South Wales</a>
-    <a href="/qld">Queensland</a>
-    <a href="/sa">South Australia</a>
-    <a href="/tas">Tasmania</a>
-    <a href="/vic">Victoria</a>
-    <a href="/wa">Western Australia</a>
-{% endblock content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legistream - Home</title>
+    <link rel="stylesheet" href="{% static 'legistream/css/home.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+</head>
+<body>
+    <div id="top-bar">
+        <a href="/" id="logo-text">LEGISTREAM</a>
+        <a class="main-point" id="parl-dropdown">Parliament</a>
+        <div class="drodown-list">
+            <a class="dropdown-item" href="/act">Australian Capital Territory</a>
+            <a class="dropdown-item" href="/federal">Federal</a>
+            <a class="dropdown-item" href="/nsw">New South Wales</a>
+            <a class="dropdown-item" href="/qld">Queensland</a>
+            <a class="dropdown-item" href="/sa">South Australia</a>
+            <a class="dropdown-item" href="/tas">Tasmania</a>
+            <a class="dropdown-item" href="/vic">Victoria</a>
+            <a class="dropdown-item" href="/wa">Western Australia</a>
+        </div>
+    </div>
+
+    <div id="live-parls">
+        <h3 class="main-point">Live now: </h3>
+        <!-- Code to loop through current live parliaments and print them out onsite -->
+    </div>
+
+    <div id="lower-bar">
+        <a target="_blank" href="https://github.com/OpenGovAus/legistream-site" class="main-point"><img class="logo" src="{% static 'legistream/img/gh-logo.png' %}">View code on GitHub</a>
+    </div>
+</body>
+</html>
