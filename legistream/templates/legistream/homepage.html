@@ -11,23 +11,30 @@
 </head>
 <body>
     <nav>
-        <div id="top-bar">
-            <a href="/" class="navbar-content">Home</a>
-            <a href="#" class="navbar-content">Parliament</a>
-            <a href="/" class="navbar-content">Info</a>
-        </div>
-        <div id="opengov-container">
-            <a target="_blank" href="https://github.com/OpenGovAus" id="OpenGovAus-title">OpenGov Australia</a>
+        <div class="dropdown">
+            <button><a class="dropdown-link" href="/">Home</a></button>
+            <div class="parliament-dropdown">
+                <button>Parliament <img src="{% static 'legistream/img/dropdown.svg' %}"></button>
+                <ul>
+                    <li><a class="dropdown-content" href="#">ACT</a></li>
+                    <li><a class="dropdown-content" href="#">Federal</a></li>
+                </ul>
+            </div>
+            <button><a class="dropdown-link" href="/info" id="info-btn">Info</a></button>
         </div>
     </nav>
     <div id="home-content">
         <a href="/" id="logo-text">LEGISTREAM</a>
         <p id="brand-hook-wink-wink">The <strong>easiest</strong> way to watch Aussie parliaments live.</p>
         <div id="live-parls">
-            <p class="main-point" class="main-point">Live now:
-            {% for parl in live_parls %}
-                <a class="main-point" href="{{ parl.url }}">{{ parl.parl }} </a>
-            {% endfor %}</p>
+            {% if live_parls %}
+                <p class="main-point">Live now:
+                {% for parl in live_parls %}
+                    <a class="main-point" href="{{ parl.url }}">{{ parl.parl }} </a>
+                {% endfor %}</p>
+            {% else %}
+                    <p class="main-point">No parliaments are currently live...</p>
+            {% endif %}
         </div>
     </div>
     <div id="lower-bar">

@@ -8,11 +8,112 @@
     src: url('../fonts/dosis.ttf');
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    transition: all 0.2s ease;
+}
+
 html {
     background-image: url('../img/bg-fedparl.png');
     background-repeat: no-repeat;
     background-size:cover;
     color: white;
+}
+
+#info-btn {
+    margin-left: 25px;
+}
+
+.dropdown {
+    display: flex;
+    justify-items: left;
+    margin-top: 20px;
+}
+
+.parliament-dropdown {
+    position: relative;
+}
+
+.parliament-dropdown img {
+    width: 15px;
+    margin-left: 10pt;
+    top: 20px;
+    position: absolute;
+}
+
+li {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+li:hover {
+    background-color: rgb(49, 161, 57);
+}
+
+.dropdown-content {
+    color: rgb(223, 223, 223);
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+}
+
+ul {
+    background-color: rgb(66, 66, 66);
+    position: absolute;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 170px;
+    border-radius: 10px;
+    margin-left: 22pt;
+    margin-top: 5pt;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dropdown-link {
+    color: rgb(223, 223, 223);
+    text-decoration: none;
+}
+
+.dropdown-link:hover {
+    color: rgb(68, 219, 78);
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    color: rgb(223, 223, 223);
+    padding-left: 45px;
+}
+
+button, li {
+    font-family: dosis;
+    font-size: 25pt;
+}
+
+.parliament-dropdown button:focus + ul {
+    opacity: 1;
+    transform: translateY(10px);
+    pointer-events: all;
+}
+
+.parliament-dropdown button:focus img {
+    transform: rotate(180deg);
+    transform-origin: center center;
+}
+
+.parliament-dropdown button:hover {
+    color: rgb(68, 219, 78);
+    cursor: pointer;
 }
 
 a {
@@ -21,19 +122,12 @@ a {
 
 #home-content {
     text-align: center;
-    margin-top: 120pt;
+    margin-top: 100pt;
 }
 
 #logo-text {
     font-family: gilroy;
     font-size: 88px;
-    color: rgb(223, 223, 223);
-}
-
-.navbar-content {
-    padding-right: 25pt;
-    font-family: dosis;
-    font-size: 25pt;
     color: rgb(223, 223, 223);
 }
 
@@ -50,17 +144,8 @@ a {
     font-family: gilroy;
 }
 
-.navbar-content:hover {
-    color: rgb(68, 219, 78);
-}
-
 #OpenGovAus-title:hover {
     color: rgb(49, 161, 57);
-}
-
-#top-bar {
-    padding-left: 20px;
-    padding-top: 10px;
 }
 
 .main-point {
@@ -77,15 +162,8 @@ a {
 
 #lower-bar {
     position: absolute;
-    bottom: 15px;
-    left: 20px;
-}
-
-.header {
-    font-family: dosis;
-    font-size: 35px;
-    color: rgb(223, 223, 223);
-    position: relative;
+    bottom: 25px;
+    left: 30px;
 }
 
 #live-parls {
@@ -97,24 +175,10 @@ a {
     font-family: dosis;
     font-weight: normal;
     font-size: 40pt;
+    padding-top: 10px;
+    padding-bottom: 40px;
 }
 
 strong {
     color: rgb(68, 219, 78);
-}
-
-.dropdown-list {
-    display: inline-block;
-    position: relative;
-}
-
-.dropdown-item {
-    display: none;
-    position: absolute;
-    background-color: teal;
-}
-
-.dropdown-item a {
-    color: white;
-    display: block;
 }
