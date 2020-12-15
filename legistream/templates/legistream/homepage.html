@@ -10,21 +10,26 @@
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
 </head>
 <body>
-    <div id="top-bar">
+    <nav>
+        <div id="top-bar">
+            <a href="/" class="navbar-content">Home</a>
+            <a href="#" class="navbar-content">Parliament</a>
+            <a href="/" class="navbar-content">Info</a>
+        </div>
+        <div id="opengov-container">
+            <a target="_blank" href="https://github.com/OpenGovAus" id="OpenGovAus-title">OpenGov Australia</a>
+        </div>
+    </nav>
+    <div id="home-content">
         <a href="/" id="logo-text">LEGISTREAM</a>
-        <a class="main-point" id="parl-dropdown">Parliament</a>
-        
-            <!-- I'd like to have Django loop through parliaments here, instead of hardcoding them -->
-        </select>
+        <p id="brand-hook-wink-wink">The <strong>easiest</strong> way to watch Aussie parliaments live.</p>
+        <div id="live-parls">
+            <p class="main-point" class="main-point">Live now:
+            {% for parl in live_parls %}
+                <a class="main-point" href="{{ parl.url }}">{{ parl.parl }} </a>
+            {% endfor %}</p>
+        </div>
     </div>
-
-    <div id="live-parls">
-        <h3 class="header" class="main-point">Live now: </h3>
-        {% for parl in live_parls %}
-            <a class="main-point" href="{{ parl.url }}">{{ parl.parl }} </a>
-        {% endfor %}
-    </div>
-
     <div id="lower-bar">
         <a target="_blank" href="https://github.com/OpenGovAus/legistream-site" class="main-point"><img class="logo" src="{% static 'legistream/img/gh-logo.png' %}">View code on GitHub</a>
     </div>
