@@ -1,27 +1,29 @@
 from django.shortcuts import render
+from . import statuscheck
 
 def home(request):
-    ''' Notes so I don't forget things:
-    from . import fed
-    from . import act
-    from . import wa
-    from . import nt
-    from . import nsw
-    from . import qld
+    def grammarfy(parl_list):
+        if(len(parl_list) == 1):
+            parl_list[0]['parl'] = '%s.' % (parl_list[0]['parl'])
+            return(parl_list)
+        try:
+            for parl in parl_list[:-1]:
+                parl['parl'] = '%s, ' % (parl['parl'])
+            parl_list[-1]['parl'] = 'and %s.' % (parl_list[-1]['parl'])
+            return(parl_list)
+        except:
+            return([])
 
-    This alone takes 7 - 13 seconds (with no-cache refresh) and is completely left to the mercy of the
-    speed of parliament(s)' servers. 
-    Can I get this to run in the background every [2 mins] somehow? If the server doesn't have to slow down
-    to return a boolean live value, UX would probably be - for lack of a better term - better...
-    Goal: run through each parliament, check if it's live, and return data like this:
+    live_parls = []
+    for parliament in statuscheck.check_statuses():
+        if(parliament['stat']):
+            live_parls.append(parliament)
 
-    {
-        parl: 'parl-title (QLD or something)',
-        live: True/False
+    context = {
+        'live_parls': grammarfy(live_parls)
     }
-    '''
 
-    return(render(request, 'legistream/homepage.html'))
+    return(render(request, 'legistream/homepage.html', context=context))
 
 def act(request):
     from . import act
