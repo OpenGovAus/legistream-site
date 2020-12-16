@@ -16,8 +16,13 @@
             <div class="parliament-dropdown">
                 <button>Parliament <img src="{% static 'legistream/img/dropdown.svg' %}"></button>
                 <ul>
-                    <li><a class="dropdown-content" href="#">ACT</a></li>
-                    <li><a class="dropdown-content" href="#">Federal</a></li>
+                    {% for parliament in dropdown_list %}
+                        {% if parliament.radius %}
+                            <li style="border-radius: {{ parliament.radius }}"><a class="dropdown-content" href="{{ parliament.url }}">{{ parliament.parl }}</a></li>
+                        {% else %}
+                            <li><a class="dropdown-content" href="{{ parliament.url }}">{{ parliament.parl }}</a></li>
+                        {% endif %}
+                    {% endfor %}
                 </ul>
             </div>
             <button><a class="dropdown-link" href="/info" id="info-btn">Info</a></button>

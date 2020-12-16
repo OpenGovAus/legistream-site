@@ -17,10 +17,12 @@ def home(request):
     live_parls = []
     for parliament in statuscheck.check_statuses():
         if(parliament['stat']):
-            live_parls.append(parliament)
+            dummy = parliament
+            live_parls.append(dummy)
 
     context = {
-        'live_parls': grammarfy(live_parls)
+        'dropdown_list': statuscheck.check_statuses(),
+        'live_parls': grammarfy(live_parls),
     }
 
     return(render(request, 'legistream/homepage.html', context=context))

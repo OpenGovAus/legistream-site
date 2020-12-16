@@ -9,54 +9,57 @@ URL = 'url'
 
 def __act_stream(stream_object):
     data_dict = {PARL_ID: 'ACT'}
+    data_dict[URL] = '/act'
+    data_dict['radius'] = '10px 10px 0px 0px'
     if(stream_object.lower_is_live):
         data_dict[STREAM_STAT] = True
-        data_dict[URL] = '/act'
+        
     else:
         data_dict[STREAM_STAT] = False
     return data_dict
 
 def __nt_stream(stream_object):
     data_dict = {PARL_ID: 'NT'}
+    data_dict[URL] = '/nt'
     if(stream_object.lower_is_live):
         data_dict[STREAM_STAT] = True
-        data_dict[URL] = '/nt'
     else:
         data_dict[STREAM_STAT] = False
     return data_dict
 
 def __qld_stream(stream_object):
     data_dict = {PARL_ID: 'Queensland'}
+    data_dict[URL] = '/qld'
     if(stream_object.is_live):
         data_dict[STREAM_STAT] = True
-        data_dict[URL] = '/qld'
     else:
         data_dict[STREAM_STAT] = False
     return data_dict
 
 def __fed_stream(stream_object):
     data_dict = {PARL_ID: 'Federal'}
+    data_dict[URL] = '/fed'
     if(stream_object.lower_is_live or stream_object.upper_is_live or stream_object.committee_is_live):
         data_dict[STREAM_STAT] = True
-        data_dict[URL] = '/fed'
     else:
         data_dict[STREAM_STAT] = False
     return data_dict
 
 def __nsw_stream(stream_object):
     data_dict = {PARL_ID: 'NSW'}
+    data_dict[URL] = '/nsw'
     if(stream_object.lower_is_live or stream_object.upper_is_live or stream_object.committee_is_live or stream_object.jubilee_is_live):
         data_dict[STREAM_STAT] = True
-        data_dict[URL] = '/nsw'
     else:
         data_dict[STREAM_STAT] = False
     return data_dict
 
 def __wa_stream(stream_object):
     data_dict = {PARL_ID: 'WA'}
+    data_dict[URL] = '/wa'
+    data_dict['radius'] = '0px 0px 10px 10px'
     if(stream_object.lower_is_live or stream_object.upper_is_live):
         data_dict[STREAM_STAT] = True
-        data_dict[URL] = '/wa'
     else:
         data_dict[STREAM_STAT] = False
     return data_dict
