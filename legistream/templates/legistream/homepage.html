@@ -1,36 +1,7 @@
+{% extends "legistream/global.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legistream - Home</title>
-    <link rel="stylesheet" href="{% static 'legistream/css/home.css' %}">
-    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
-</head>
-<body>
-    <nav>
-        <div class="dropdown">
-            <button><a class="dropdown-link" href="/">Home</a></button>
-            <div class="parliament-dropdown">
-                <button>Parliament <img src="{% static 'legistream/img/dropdown.svg' %}"></button>
-                <ul>
-                    {% for parliament in dropdown_list %}
-                        {% if parliament.radius %}
-                            <li style="border-radius: {{ parliament.radius }}"><a class="dropdown-content" href="{{ parliament.url }}">{{ parliament.parl }}</a></li>
-                        {% else %}
-                            <li><a class="dropdown-content" href="{{ parliament.url }}">{{ parliament.parl }}</a></li>
-                        {% endif %}
-                    {% endfor %}
-                </ul>
-            </div>
-            <button><a class="dropdown-link" href="/info" id="info-btn">Info</a></button>
-        </div>
-    </nav>
-    <div id="opengov-container">
-        <a target="_blank" id="OpenGovAus-title" href="https://github.com/OpenGovAus">OpenGov Australia</a>
-    </div>
+{% block content %}
     <div id="home-content">
         <a href="/" id="logo-text">LEGISTREAM</a>
         <p id="brand-hook-wink-wink">The <strong>easiest</strong> way to watch Aussie parliaments live.</p>
@@ -45,8 +16,4 @@
             {% endif %}
         </div>
     </div>
-    <div id="lower-bar">
-        <a target="_blank" href="https://github.com/OpenGovAus/legistream-site" class="main-point"><img class="logo" src="{% static 'legistream/img/gh-logo.png' %}">View code on GitHub</a>
-    </div>
-</body>
-</html>
+{% endblock content %}

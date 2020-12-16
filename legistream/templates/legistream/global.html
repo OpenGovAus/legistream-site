@@ -1,6 +1,7 @@
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
     {% if title %}
         <title>Legistream - {{ title }}</title>
     {% else %}
@@ -8,16 +9,47 @@
     {% endif %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'legistream/css/home.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
     {% block headcontent %}
     {% endblock %}
 </head>
 <body>
-    <div class="container">
-        {% block content %}
-        {% endblock %}
+    <nav>
+        <div class="dropdown">
+            <button><a class="dropdown-link" id="home-btn" href="/">Home</a></button>
+            <div class="parliament-dropdown">
+                <button id="parl-btn">Parliament <img src="{% static 'legistream/img/dropdown.svg' %}"></button>
+                <ul>
+                    {% for parliament in dropdown_list %}
+                        {% if parliament.radius %}
+                            <li style="border-radius: {{ parliament.radius }}"><a class="dropdown-content" href="{{ parliament.url }}">{{ parliament.parl }}</a></li>
+                        {% else %}
+                            <li><a class="dropdown-content" href="{{ parliament.url }}">{{ parliament.parl }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <button><a class="dropdown-link" href="/info" id="info-btn">Info</a></button>
+        </div>
+    </nav>
+    <script type="text/javascript">
+        if(window.location.href == 'http://localhost:8000/') // Will change to domain name when that's set up....
+        {
+            document.getElementById('home-btn').style.color = '#44DB4E'
+        }
+        else if(window.location.href != 'http://localhost:8000/info')
+        {
+            document.getElementById('parl-btn').style.color = '#44DB4E'
+        }
+    </script>
+    <div id="opengov-container">
+        <a target="_blank" id="OpenGovAus-title" href="https://github.com/OpenGovAus">OpenGov Australia</a>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    {% block content %}
+    {% endblock content %}
+    <div id="lower-bar">
+        <a target="_blank" href="https://github.com/OpenGovAus/legistream-site" class="main-point"><img class="logo" src="{% static 'legistream/img/gh-logo.png' %}">View code on GitHub</a>
+    </div>
 </body>
+</html>

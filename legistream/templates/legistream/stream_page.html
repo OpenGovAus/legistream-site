@@ -3,30 +3,26 @@
 
 {% block headcontent %}
     <link rel="stylesheet" href="{% static 'legistream/css/stream_page.css' %}">
-    <style>
-        body {
-            background-image: url("{% static 'legistream/img/bg-ntparl.png' %}");
-            background-repeat: no-repeat;
-            background-size:cover;
-        }
-    </style>
-{% endblock headcontent%}
+{% endblock headcontent %}
 
 {% block content %}
-    <div>
-        <h1 class="heading">{{ parl }} Parliament</h1>
+    <style>
+        html {
+            {% if title == 'NT' %}
+                background-image: url('{% static 'legistream/img/bg-ntparl.png' %}');
+            {% endif %}
+        }
+    </style>
+    <div class="title-container">
+        <h1 id="logo-text">{{ parl }} Parliament</h1>
     </div>
-    <div id="streams">
-        {% if stream_urls %}
-            {% for stream in stream_urls%}
-                <div class="stream-block">
-                    <p class="stream-title"><class="id-hook" id="{{ stream.title }}"></a>{{ stream.title }}</p>
-                    <a href="{{ stream.url }}" ><img class="stream-thumb" src="{% static 'legistream/img/16x9placeholder.jpg' %}"></a>
-                </div>
+    <div id="streams-block">
+        <!-- Loop through streams -->
+        <div class="stream-container">
+            <img class="stream-thumb" src="{% static 'legistream/img/16x9placeholder.jpg' %}">
+            {% for parltitle in stream_urls %}
+                <p class="stream-label">Stream: <strong>{{ parltitle.title }}</strong></p>
             {% endfor %}
-        {% else %}
-            <p>This parliament is not currently broadcasting.</p>
-        {% endif %}
+        </div>
     </div>
-    <a href="/" class="btn">Home</a>
 {% endblock content %}

@@ -1,50 +1,34 @@
-@font-face {
-    font-family: 'gilroy';
-    src: url('../fonts/Gilroy-ExtraBold.otf');
+.title-container {
+    text-align: center;
+}
+#logo-text {
+    font-size: 35pt;
+    text-transform: uppercase;
+    margin-top: 30pt;
 }
 
-@font-face {
-    font-family: 'dosis';
-    src: url('../fonts/dosis.ttf');
-}
-
-* {
-    padding: 0px;
-    margin: 0px;
+.stream-container {
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
 
 .stream-thumb {
-    width: 720px;
-    padding: 10px;
-    padding-bottom: 25px;
+    display: block;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
 }
 
-.heading {
-    font-family: gilroy;
-    text-transform: uppercase;
+.social {
+    font-family: dosis;
+    font-size: 30pt;
+    float: right;
+}
+
+.stream-label {
     text-align: center;
-}
-
-.stream-title {
-    font-weight: bold;
-}
-
-div {
-    padding: 10px;
-    padding-bottom: 0px;
-}
-
-.id-hook {
-    padding: 10px;
-    font-size: x-large;
-    color: orange;
-}
-
-body {
-    color: white;
-}
-
-.btn {
-    color: black;
-    background-color: white;
+    font-family: dosis;
+    font-size: 15pt;
 }
