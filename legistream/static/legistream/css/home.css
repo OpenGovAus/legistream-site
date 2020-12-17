@@ -55,6 +55,10 @@ li:hover {
     background-color: rgb(49, 161, 57);
 }
 
+#gh-hook:hover {
+    color: rgb(68, 219, 78);
+}
+
 .dropdown-content {
     color: rgb(223, 223, 223);
     text-decoration: none;

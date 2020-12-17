@@ -5,8 +5,8 @@ tas_stream = tasStream()
 tas_urls = []
 
 if(tas_stream.lower_is_live):
-    tas_urls.append({'url': tas_stream.lower_stream_url, 'title': 'House of Assembly'})
+    tas_urls.append({'url': tas_stream.lower_stream_url, 'title': 'House of Assembly', 'safe': 'house-assembly-vid'})
 if(tas_stream.upper_is_live):
-    tas_urls.append({'url': tas_stream.upper_stream_url, 'title': 'Legislative Council'})
+    tas_urls.append({'url': tas_stream.upper_stream_url, 'title': 'Legislative Council', 'safe': 'legislative-council-vid'})
 
 parl_title = 'Tasmania'

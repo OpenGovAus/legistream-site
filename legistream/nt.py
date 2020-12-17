@@ -5,6 +5,6 @@ nt_stream = ntStream()
 nt_urls = []
 
 if(nt_stream.lower_is_live):
-    nt_urls.append({'url': nt_stream.lower_stream_url, 'title': 'Legislative Assembly'})
+    nt_urls.append({'url': nt_stream.lower_stream_url, 'title': 'Legislative Assembly', 'safe': 'legislative-assembly-vid'})
 
 parl_title = 'Northern Territory'

@@ -28,7 +28,7 @@ def __nt_stream(stream_object):
     return data_dict
 
 def __qld_stream(stream_object):
-    data_dict = {PARL_ID: 'Queensland'}
+    data_dict = {PARL_ID: 'QLD'}
     data_dict[URL] = '/qld'
     if(stream_object.is_live):
         data_dict[STREAM_STAT] = True
