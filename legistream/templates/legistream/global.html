@@ -19,7 +19,7 @@
         <div class="dropdown">
             <button><a class="dropdown-link" id="home-btn" href="/">Home</a></button>
             <div class="parliament-dropdown">
-                <button id="parl-btn">Parliament <img src="{% static 'legistream/img/dropdown.svg' %}"></button>
+                <button id="parl-btn">Parliament <img class="dropdown-icn" src="{% static 'legistream/img/dropdown.svg' %}"></button>
                 <ul>
                     {% for parliament in dropdown_list %}
                         {% if parliament.radius %}
@@ -30,7 +30,7 @@
                     {% endfor %}
                 </ul>
             </div>
-            <button><a class="dropdown-link" href="/info" id="info-btn">Info</a></button>
+            <button><a class="dropdown-link" href="/info">Info</a></button>
         </div>
     </nav>
     <script type="text/javascript">

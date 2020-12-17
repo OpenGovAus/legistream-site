@@ -11,6 +11,12 @@
     justify-content: center;
     align-items: center;
     align-content: center;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.stream-thumb:hover {
+    transform: scale(1.05);
 }
 
 .stream-thumb {
@@ -31,4 +37,5 @@
     text-align: center;
     font-family: dosis;
     font-size: 15pt;
+    color: rgb(223,223,223);
 }

@@ -8,8 +8,23 @@
 {% block content %}
     <style>
         html {
-            {% if title == 'NT' %}
+            {% if title == 'NT Parliament' %}
                 background-image: url('{% static 'legistream/img/bg-ntparl.png' %}');
+            {% endif %}
+            {% if title == 'QLD Parliament' %}
+                background-image: url('{% static 'legistream/img/bg-qldparl.png' %}');
+            {% endif %}
+            {% if title == 'ACT Parliament' %}
+                background-image: url('{% static 'legistream/img/bg-actparl.png' %}');
+            {% endif %}
+            {% if title == 'NSW Parliament' %}
+                background-image: url('{% static 'legistream/img/bg-nswparl.png' %}');
+            {% endif %}
+            {% if title == 'WA Parliament' %}
+                background-image: url('{% static 'legistream/img/bg-waparl.png' %}');
+            {% endif %}
+            {% if title == 'Federal Parliament' %}
+                background-image: url('{% static 'legistream/img/bg-fedparl.png' %}');
             {% endif %}
         }
     </style>
@@ -17,12 +32,15 @@
         <h1 id="logo-text">{{ parl }} Parliament</h1>
     </div>
     <div id="streams-block">
-        <!-- Loop through streams -->
-        <div class="stream-container">
-            <img class="stream-thumb" src="{% static 'legistream/img/16x9placeholder.jpg' %}">
-            {% for parltitle in stream_urls %}
-                <p class="stream-label">Stream: <strong>{{ parltitle.title }}</strong></p>
+        {% if stream_urls %}
+            {% for stream in stream_urls %}
+                <div class="stream-container">
+                    <img class="stream-thumb" src="{% static 'legistream/img/16x9placeholder.jpg' %}">
+                    <p class="stream-label">Stream: <strong>{{ stream.title }}</strong></p>
+                </div>
             {% endfor %}
-        </div>
+        {% else %}
+                <p class="stream-label">This parliament is not currently broadcasting.</p>
+        {% endif %}
     </div>
 {% endblock content %}

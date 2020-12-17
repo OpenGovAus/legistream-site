@@ -14,15 +14,15 @@
     transition: all 0.2s ease;
 }
 
+*,*:focus,*:hover{
+    outline:none;
+}
+
 html {
     background-image: url('../img/bg-fedparl.png');
     background-repeat: no-repeat;
     background-size:cover;
     color: white;
-}
-
-#info-btn {
-    margin-left: 25px;
 }
 
 .dropdown {
@@ -35,11 +35,11 @@ html {
     position: relative;
 }
 
-.parliament-dropdown img {
+.dropdown-icn {
     width: 15px;
-    margin-left: 10pt;
-    top: 20px;
-    position: absolute;
+    margin-left: 4pt;
+    top: -4px;
+    position: relative;
 }
 
 li {

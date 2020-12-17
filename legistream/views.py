@@ -31,31 +31,28 @@ def home(request):
 
 def act(request):
     from . import act
-    context = {
-        'stream_urls': act.act_urls,
-        'parl': act.parl_title,
-        'title': 'ACT'
-    }
+    context = gen_context()
+    context['stream_urls'] = act.act_urls
+    context['parl'] = act.parl_title
+    context['title'] = 'ACT Parliament'
 
     return(render(request, 'legistream/stream_page.html', context=context))
 
 def federal(request):
     from . import fed
-    context = {
-        'stream_urls': fed.fed_urls,
-        'parl': fed.parl_title,
-        'title': 'Federal'
-    }
+    context = gen_context()
+    context['stream_urls'] = fed.fed_urls
+    context['parl'] = fed.parl_title
+    context['title'] = 'Federal Parliament'
 
     return(render(request, 'legistream/stream_page.html', context=context))
 
 def nsw(request):
     from . import nsw
-    context = {
-        'stream_urls': nsw.nsw_urls,
-        'parl': nsw.parl_title,
-        'title': 'NSW'
-    }
+    context = gen_context()
+    context['stream_urls'] = nsw.nsw_urls
+    context['parl'] = nsw.parl_title
+    context['title'] = 'NSW Parliament'
 
     return(render(request, 'legistream/stream_page.html', context=context))
 
@@ -65,17 +62,15 @@ def nt(request):
     context['stream_urls'] = nt.nt_urls
     context['parl'] = nt.parl_title
     context['title'] = 'NT Parliament'
-    context['bg_image'] = 'legistream/img/bg-ntparl.png'
 
     return(render(request, 'legistream/stream_page.html', context=context))
 
 def qld(request):
     from . import qld
-    context = {
-        'stream_urls': qld.qld_urls,
-        'parl': qld.parl_title,
-        'title': 'QLD'
-    }
+    context = gen_context()
+    context['stream_urls'] = qld.qld_urls
+    context['parl'] = qld.parl_title
+    context['title'] = 'QLD Parliament'
 
     return(render(request, 'legistream/stream_page.html', context=context))
 
@@ -117,10 +112,9 @@ def vic(request):
 
 def wa(request):
     from . import wa
-    context = {
-        'stream_urls': wa.wa_urls,
-        'parl': wa.parl_title,
-        'title': 'WA'
-    }
+    context = gen_context()
+    context['stream_urls'] = wa.wa_urls
+    context['parl'] = wa.parl_title
+    context['title'] = 'WA Parliament'
 
     return(render(request, 'legistream/stream_page.html', context=context))
