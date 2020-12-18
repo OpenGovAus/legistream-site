@@ -34,11 +34,11 @@
         </div>
     </nav>
     <script type="text/javascript">
-        if(window.location.href == 'http://localhost:8000/') // Will change to domain name when that's set up....
+        if(window.location.pathname == '/')
         {
             document.getElementById('home-btn').style.color = '#44DB4E'
         }
-        else if(window.location.href != 'http://localhost:8000/info')
+        else if(window.location.pathname != '/info')
         {
             document.getElementById('parl-btn').style.color = '#44DB4E'
         }
