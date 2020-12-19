@@ -11,5 +11,6 @@ urlpatterns = [
     path('nt/', views.nt, name='nt-parliament'),
     path('vic/', views.vic, name='vic-parliament'),
     path('tas/', views.tas, name='tas-parliament'),
-    path('sa/', views.sa, name='sa-parliament')
+    path('sa/', views.sa, name='sa-parliament'),
+    path('demoparl/', views.demoparl, name='demo-parliament')
 ]

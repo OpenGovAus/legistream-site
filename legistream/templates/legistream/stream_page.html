@@ -40,9 +40,15 @@
             {% for stream in stream_urls %}
                 <div class="stream-container">
                     <div class="video-container">
-                        <video id='{{ stream.safe }}'  class="stream-thumb video-js vjs-default-skin" width="960" height="360" controls>
-                            <source src="{{ stream.url }}" type="application/x-mpegURL">
-                        </video>
+                        {% if stream_amount < 3 %}
+                            <video id='{{ stream.safe }}'  class="stream-thumb video-js vjs-default-skin" width="600" height="338" controls>
+                                <source src="{{ stream.url }}" type="application/x-mpegURL">
+                            </video>
+                        {% else %}
+                            <video id='{{ stream.safe }}'  class="stream-thumb video-js vjs-default-skin" width="540" height="304" controls>
+                                <source src="{{ stream.url }}" type="application/x-mpegURL">
+                            </video>
+                        {% endif %}
                         <script>
                             var from_backend = "{{ stream.safe }}";
                             var player = videojs(from_backend);
@@ -56,4 +62,7 @@
                 <p class="stream-label">This parliament is not currently broadcasting.</p>
         {% endif %}
     </div>
+    {% if title == 'demoparl' %}
+        <p id="youcrazypeople" class="main-point">Hey. I don't know how you got here (unless you cheated by looking at the GitHub code).<br>This is a test page which uses ACT VOD streams to simulate live streams.</p>
+    {% endif %}
 {% endblock content %}

@@ -2,9 +2,17 @@
     text-align: center;
 }
 #logo-text {
-    font-size: 35pt;
+    font-size: 55pt;
     text-transform: uppercase;
-    margin-top: 30pt;
+    margin-top: 60pt;
+    padding-bottom: 10pt;
+}
+
+#streams-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
 }
 
 .stream-container {
@@ -21,9 +29,17 @@
     padding: 30px;
 }
 
+#youcrazypeople {
+    text-align: center;
+    justify-items: center;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    padding-top: 20px;
+}
+
 .stream-thumb {
     display: block;
-    width: 600px;
     margin-left: auto;
     margin-right: auto;
     padding: 30px;

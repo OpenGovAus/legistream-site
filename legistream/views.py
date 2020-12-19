@@ -118,3 +118,12 @@ def wa(request):
     context['title'] = 'WA Parliament'
 
     return(render(request, 'legistream/stream_page.html', context=context))
+
+def demoparl(request):
+    context = gen_context()
+    context['stream_urls'] = [{'url': 'http://video.parliament.act.gov.au/vod/amlst:ASSEMBLY_13-08-13_3/playlist.m3u8?DVR', 'title': 'nothin', 'safe': 'nothin'}, {'url': 'http://video.parliament.act.gov.au/vod/amlst:ASSEMBLY_20-08-20_1/playlist.m3u8?DVR', 'title': 'Stream 1', 'safe': 'strm1'}, {'url': 'http://video.parliament.act.gov.au/vod/amlst:ASSEMBLY_30-07-20_1/playlist.m3u8?DVR', 'title': 'Stream 2', 'safe': 'strm2'}]
+    context['parl'] = 'Not a'
+    context['title'] = 'demoparl'
+    context['stream_amount'] = len(context['stream_urls'])
+
+    return(render(request, 'legistream/stream_page.html', context=context))
