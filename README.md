@@ -36,7 +36,7 @@ source legistr_venv/bin/activate
 You should now be loaded into the virtual environment, and your terminal should look like this:
 
 ```
-(legist_venv) /.../git/legistream-site/ >
+(legistr_venv) /.../git/legistream-site/ >
 ```
 
 ## Install Dependencies
