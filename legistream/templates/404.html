@@ -3,16 +3,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="{% static 'legistream/css/home.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
     <link rel="stylesheet" href="{% static '404.css' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Where's Legistream?</title>
 </head>
 <body>
-    <h1>Error 404</h1>
-    <div>
-        <p>Looks like this page has taken a taxpayer funded trip to Hawaii...</p>
-        <img src=''>
+    <h1 id="logo-text">ERROR 404</h1>
+    <div id="content">
+        <p class="main-point">Looks like this page has taken a taxpayer funded trip to Hawaii...</p>
+        <img src="{% static 'legistream/img/scotty-in-hawaii.png' %}">
     </div>
+    <a class="dropdown-link" href="/">Home</a>
 </body>
 </html>
