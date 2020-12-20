@@ -24,13 +24,27 @@ body {
 }
 
 .main-point {
-    margin-top: 170pt;
     font-size: 30pt;
+    padding: 10px;
+}
+
+.main-point a:hover {
+    color: rgb(68, 219, 78);
+}
+
+h1 {
+    display: flex;
+}
+
+.highlight {
+    color: rgb(68, 219, 78);
+    padding-left: 30px;
 }
 
 #content {
     align-content: center;
     text-align: center;
     justify-content: center;
-    display: flex;
+    display: block;
+    margin-top: 80pt;
 }

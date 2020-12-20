@@ -11,10 +11,15 @@
     <title>Where's Legistream?</title>
 </head>
 <body>
-    <h1 id="logo-text">ERROR 404</h1>
+    <style>
+        html {
+            background-image: url("{% static 'legistream/img/bg-demoparl.png' %}");
+        }
+    </style>
+    <h1 id="logo-text">ERROR <p class="highlight">404</p></h1>
     <div id="content">
-        <p class="main-point">Looks like this page has taken a taxpayer funded trip to Hawaii...</p>
-        <img src="{% static 'legistream/img/scotty-in-hawaii.png' %}">
+        <h3 class="main-point">Page not found...</h3>
+        <p class="main-point">If you got here by clicking on a link within Legistream, please let us know by <strong><a class="main-point" target="_blank" href="https://github.com/OpenGovAus/legistream-site/issues/new/choose">opening an Issue on GitHub</a></strong>.</p>
     </div>
     <a class="dropdown-link" href="/">Home</a>
 </body>
