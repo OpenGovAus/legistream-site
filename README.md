@@ -75,7 +75,7 @@ DEBUG = True
 On first run:
 
 ```sh
-python manage.py migrate
+python3 manage.py migrate
 ```
 
 To run the server, use this command:
