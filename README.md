@@ -56,7 +56,27 @@ SECRET_KEY = 'your server secret key' # Look at the Django docs for more info
 
 The application will work if you just throw in random garbage, but **do not leave ADMIN_PATH blank!**
 
+## Set DEBUG = True
+
+In `legistream_site/settings.py` change the line:
+
+```python
+DEBUG = False
+```
+
+to
+
+```python
+DEBUG = True
+```
+
 # Running Legistream
+
+On first run:
+
+```sh
+python3 manage.py migrate
+```
 
 To run the server, use this command:
 
