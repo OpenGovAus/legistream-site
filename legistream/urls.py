@@ -12,5 +12,6 @@ urlpatterns = [
     path('vic/', views.vic, name='vic-parliament'),
     path('tas/', views.tas, name='tas-parliament'),
     path('sa/', views.sa, name='sa-parliament'),
-    path('demoparl/', views.demoparl, name='demo-parliament')
+    path('demoparl/', views.demoparl, name='demo-parliament'),
+    path('info/', views.info, name='info-pg')
 ]

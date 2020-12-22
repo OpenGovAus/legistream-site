@@ -127,3 +127,6 @@ def demoparl(request):
     context['stream_amount'] = len(context['stream_urls'])
 
     return(render(request, 'legistream/stream_page.html', context=context))
+
+def info(request):
+    return(render(request, 'legistream/info.html'))
