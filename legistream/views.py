@@ -129,4 +129,5 @@ def demoparl(request):
     return(render(request, 'legistream/stream_page.html', context=context))
 
 def info(request):
-    return(render(request, 'legistream/info.html'))
+    context = gen_context()
+    return(render(request, 'legistream/info.html', context=context))

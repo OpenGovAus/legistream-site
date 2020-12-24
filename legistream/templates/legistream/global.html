@@ -56,7 +56,7 @@
                     {% endfor %}
                 </ul>
             </div>
-            <!-- button><a class="dropdown-link" href="/info">Info</a></button -->
+            <button><a id="info-btn" class="dropdown-link" href="/info">Info</a></button>
         </div>
     </nav>
     <script type="text/javascript">
@@ -64,8 +64,12 @@
         {
             document.getElementById('home-btn').style.color = '#44DB4E'
         }
-        else if(window.location.pathname != '/info')
+        else if(window.location.pathname == '/info' || window.location.pathname == '/info/')
         {
+            document.getElementById('info-btn').style.color = '#44DB4E'
+            
+        }
+        else {
             document.getElementById('parl-btn').style.color = '#44DB4E'
         }
     </script>
