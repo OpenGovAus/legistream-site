@@ -6,7 +6,7 @@ Legistream is the easiest way to stream Australian parliaments live. Legistream 
 
 Legistream uses our Python package [legistream-backend](https://github.com/OpenGovAus/legistream-backend) to gather stream URLs and metadata from the parliament sites.
 
-- We also plan to integreate [Aus-Bills](https://github.com/OpenGovAus/Aus-Bills) in some form in the future.
+- We also plan to integrate [Aus-Bills](https://github.com/OpenGovAus/Aus-Bills) in some form in the future.
 
 # Setup
 
