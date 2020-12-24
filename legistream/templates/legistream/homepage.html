@@ -9,7 +9,7 @@
             {% if live_parls %}
                 <p class="main-point">Live now:
                 {% for parl in live_parls %}
-                    <a class="main-point" href="{{ parl.url }}">{{ parl.parl }} </a>
+                    <a class="main-point parl-hook" href="{{ parl.url }}">{{ parl.parl }} </a>
                 {% endfor %}</p>
             {% else %}
                     <p class="main-point">No parliaments are currently live...</p>

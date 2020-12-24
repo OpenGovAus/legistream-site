@@ -56,6 +56,10 @@ li:hover {
     background-color: rgb(49, 161, 57);
 }
 
+.parl-hook:hover {
+    color: rgb(68, 219, 78);
+}
+
 #gh-hook:hover {
     color: rgb(68, 219, 78);
 }
