@@ -87,13 +87,3 @@ python3 manage.py runserver
 If you get any errors, make sure you've set up your virtual environment correctly and that you've installed all the required dependencies.
 
 You should now be able to access Legistream by going to `localhost:8000` in your browser.
-
-# Contributing
-
-- Do not submit pull requests that contain code for the actual parliament streams, please have a look at [legistream-backend](https://github.com/OpenGovAus/legistream-backend) if you wish to change things related to getting stream URLs and statuses.
-
-Submit a pull request when you've finished working on your desired feature, issue, or optimisation.
-
-Your request won't be merged until at least two of us have had a look through your PR and approved it.
-
-If you submit anything that deliberately opens up security risks, **don't expect to be submitting anything else in the future**.
