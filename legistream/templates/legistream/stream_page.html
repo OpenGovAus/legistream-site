@@ -32,9 +32,7 @@
             {%endif%}
         }
     </style>
-    <script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.14.1/videojs-contrib-hls.js"></script>
-    <script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
+    <script src="{% static 'legistream/js/stream_widget.js' %}"></script>
     <div class="title-container">
         <h1 id="logo-text">{{ parl }} Parliament</h1>
     </div>
@@ -44,19 +42,10 @@
                 <div class="stream-container">
                     <div class="video-container">
                         {% if stream_amount < 3 %}
-                            <video id='{{ stream.safe }}'  class="stream-thumb video-js vjs-default-skin" width="600" height="338" controls>
-                                <source src="{{ stream.url }}" type="application/x-mpegURL">
-                            </video>
+                            <img src="{% static 'legistream/img/16x9placeholder.jpg' %}" width="600" height="338">
                         {% else %}
-                            <video id='{{ stream.safe }}'  class="stream-thumb video-js vjs-default-skin" width="400" height="225" controls>
-                                <source src="{{ stream.url }}" type="application/x-mpegURL">
-                            </video>
+                            <img onclick="gen_widget('{{ stream.title }}', '{{ stream.url }}', '{{ stream.safe }}', `{% static 'legistream/img/back-button.png' %}`);" id='{{ stream.safe }}' class="stream-thumb" src="{% static 'legistream/img/16x9placeholder.jpg' %}" width="400" height="225">
                         {% endif %}
-                        <script>
-                            var from_backend = "{{ stream.safe }}";
-                            var player = videojs(from_backend);
-                            player.play();
-                        </script>
                     </div>
                     <p class="stream-label">Stream: <strong>{{ stream.title }}</strong></p>
                 </div>

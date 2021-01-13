@@ -15,6 +15,13 @@
     align-content: center;
 }
 
+#stream-video-container {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
 .stream-container {
     justify-content: center;
     align-items: center;
@@ -23,6 +30,7 @@
 
 .stream-thumb:hover {
     transform: scale(1.05);
+    cursor: pointer;
 }
 
 .video-container {
