@@ -1,8 +1,12 @@
+var playing = false;
+var player = '';
+
 function playVideo(stream_safe)
 {
     var from_backend = `vid-${stream_safe}`;
-    var player = videojs(from_backend);
+    player = videojs(from_backend);
     player.play();
+    playing = true;
 }
 
 function close_widget(clicked_thumb)
@@ -10,7 +14,6 @@ function close_widget(clicked_thumb)
     widget_container = document.getElementById('stream-widget-container')
     widget_container.style.opacity = '0.0'
     widget_container.style.visibility = 'hidden'
-    widget_container.innerHTML = ''
 
     gh_hook = document.getElementById('lower-bar')
     gh_hook.style.transition = 'all 0.2s'
@@ -27,6 +30,7 @@ function close_widget(clicked_thumb)
     clicked = document.getElementById(clicked_thumb)
     clicked.style.opacity = '1.0'
     clicked.style.visibility = 'visible'
+    player.pause()
 }
 
 function gen_widget(stream_title, stream_url, stream_safe, back_btn_loc)
@@ -54,8 +58,10 @@ function gen_widget(stream_title, stream_url, stream_safe, back_btn_loc)
     clicked = document.getElementById(stream_safe)
     clicked.style.opacity = '0.0'
     clicked.style.visibility = 'hidden'
-
-    widget_container.innerHTML = `<style>video {opacity: 1.0;} #stream-text {padding: 30px; font-size: 55pt; font-family: gilroy;} #back-btn {right: 40px; top: 52px; position: absolute;} #back-btn-img {height: 18pt; padding-right: 5pt;} #back-btn:hover {color: rgb(68, 219, 78); cursor: pointer;} #back-btn:hover #back-btn-img {padding-right: 10pt;}</style><h1 id="stream-text">${stream_title.toUpperCase()}</h1><button id="back-btn" onclick="close_widget('${stream_safe}')"><img id="back-btn-img" src="${back_btn_loc}">Back</button><div id="stream-video-container"></div>`
-    document.getElementById('stream-video-container').innerHTML = `<video id="vid-${stream_safe}" class="video-js vjs-default-skin" width="800" height="450" controls><source src="${stream_url}" type="application/x-mpegURL"></video>`
-    playVideo(stream_safe)
+    if(playing === false)
+    {
+        widget_container.innerHTML = `<style>video {opacity: 1.0;} #stream-text {padding: 30px; font-size: 55pt; font-family: gilroy;} #back-btn {right: 40px; top: 52px; position: absolute;} #back-btn-img {height: 18pt; padding-right: 5pt;} #back-btn:hover {color: rgb(68, 219, 78); cursor: pointer;} #back-btn:hover #back-btn-img {padding-right: 10pt;}</style><h1 id="stream-text">${stream_title.toUpperCase()}</h1><button id="back-btn" onclick="close_widget('${stream_safe}')"><img id="back-btn-img" src="${back_btn_loc}">Back</button><div id="stream-video-container"></div>`
+        document.getElementById('stream-video-container').innerHTML = `<video id="vid-${stream_safe}" class="video-js vjs-default-skin" width="800" height="450" controls><source src="${stream_url}" type="application/x-mpegURL"></video>`
+        playVideo(stream_safe)
+    }
 }
