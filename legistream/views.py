@@ -22,7 +22,6 @@ def gen_context():
     return {
         'dropdown_list': statuscheck.check_statuses(),
         'live_parls': grammarfy(live_parls),
-        'stream_amount': len(live_parls),
     }
 
 def home(request):
@@ -36,6 +35,7 @@ def act(request):
     context['stream_urls'] = act.act_urls
     context['parl'] = act.parl_title
     context['title'] = 'ACT Parliament'
+    context['stream_amount'] = len(context['stream_urls'])
 
     return(render(request, 'legistream/stream_page.html', context=context))
 
@@ -45,6 +45,7 @@ def federal(request):
     context['stream_urls'] = fed.fed_urls
     context['parl'] = fed.parl_title
     context['title'] = 'Federal Parliament'
+    context['stream_amount'] = len(context['stream_urls'])
 
     return(render(request, 'legistream/stream_page.html', context=context))
 
@@ -54,6 +55,7 @@ def nsw(request):
     context['stream_urls'] = nsw.nsw_urls
     context['parl'] = nsw.parl_title
     context['title'] = 'NSW Parliament'
+    context['stream_amount'] = len(context['stream_urls'])
 
     return(render(request, 'legistream/stream_page.html', context=context))
 
@@ -63,6 +65,7 @@ def nt(request):
     context['stream_urls'] = nt.nt_urls
     context['parl'] = nt.parl_title
     context['title'] = 'NT Parliament'
+    context['stream_amount'] = len(context['stream_urls'])
 
     return(render(request, 'legistream/stream_page.html', context=context))
 
@@ -72,6 +75,7 @@ def qld(request):
     context['stream_urls'] = qld.qld_urls
     context['parl'] = qld.parl_title
     context['title'] = 'QLD Parliament'
+    context['stream_amount'] = len(context['stream_urls'])
 
     return(render(request, 'legistream/stream_page.html', context=context))
 
