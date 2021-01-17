@@ -41,10 +41,10 @@
             {% for stream in stream_urls %}
                 <div class="stream-container">
                     <div class="video-container">
-                        {% if stream_amount < 3 %}
-                            <img src="{% static 'legistream/img/16x9placeholder.jpg' %}" width="600" height="338">
+                        {% if stream_amount <= 2 %}
+                            <img onclick="gen_widget('{{ stream.title }}', '{{ stream.url }}', '{{ stream.safe }}', `{% static 'legistream/img/back-button.png' %}`);" id='{{ stream.safe }}' class="stream-thumb" src="{% static stream.thumb %}" width="600" height="338">
                         {% else %}
-                            <img onclick="gen_widget('{{ stream.title }}', '{{ stream.url }}', '{{ stream.safe }}', `{% static 'legistream/img/back-button.png' %}`);" id='{{ stream.safe }}' class="stream-thumb" src="{% static 'legistream/img/16x9placeholder.jpg' %}" width="400" height="225">
+                            <img onclick="gen_widget('{{ stream.title }}', '{{ stream.url }}', '{{ stream.safe }}', `{% static 'legistream/img/back-button.png' %}`);" id='{{ stream.safe }}' class="stream-thumb" src="{% static stream.thumb %}" width="400" height="225">
                         {% endif %}
                     </div>
                     <p class="stream-label">Stream: <strong>{{ stream.title }}</strong></p>

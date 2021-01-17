@@ -5,6 +5,6 @@ qld_stream = qldStream()
 qld_urls = []
 
 if(qld_stream.is_live):
-    qld_urls.append({'url': qld_stream.stream_url, 'title': qld_stream.stream_title, 'safe': 'qld-vid'})
+    qld_urls.append({'url': qld_stream.stream_url, 'title': qld_stream.stream_title, 'safe': 'qld-vid', 'thumb': 'legistream/img/thumbs/qld_la.png'})
 
 parl_title = 'Queensland'

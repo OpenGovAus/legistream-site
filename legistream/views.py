@@ -22,6 +22,7 @@ def gen_context():
     return {
         'dropdown_list': statuscheck.check_statuses(),
         'live_parls': grammarfy(live_parls),
+        'stream_amount': len(live_parls),
     }
 
 def home(request):
