@@ -93,7 +93,7 @@ def check_statuses():
     try:
         with open(filepath, 'r') as file:
             parsed_data = json.loads(file.read())
-            if(now - parsed_data[0] >= 180):
+            if(now - parsed_data[0] >= 300): # Check if 5 minutes or more has passed since the last stream check.
                 return(write_json(now)[1])
             else:
                 return(parsed_data[1])

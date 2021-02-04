@@ -11,4 +11,14 @@ if(fed_stream.upper_is_live):
 if(fed_stream.committee_is_live):
     fed_urls.append({'url': fed_stream.committee_stream_url, 'title': 'Committee', 'safe': 'com-vid', 'thumb': 'legistream/img/thumbs/fed_com.png'})
 
+# Parse extra committees
+try:
+    if(fed_stream.stream_urls['extra_committees']):
+        safe_start = 0
+        for stream in fed_stream.stream_urls['extra_committees']:
+            fed_urls.append({'url': stream, 'title': 'RANDCOMMITTEE', 'safe': 'extra-com-' + str(safe_start), 'thumb': 'legistream/img/thumbs/fed_placeholder.png'})
+            safe_start += 1
+except:
+    print('No extra federal committees detected.')
+
 parl_title = 'Federal'
