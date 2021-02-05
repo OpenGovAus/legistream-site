@@ -16,7 +16,7 @@ try:
     if(fed_stream.stream_urls['extra_committees']):
         safe_start = 0
         for stream in fed_stream.stream_urls['extra_committees']:
-            fed_urls.append({'url': stream, 'title': 'RANDCOMMITTEE', 'safe': 'extra-com-' + str(safe_start), 'thumb': 'legistream/img/thumbs/fed_placeholder.png'})
+            fed_urls.append({'url': stream['url'], 'title': stream['title'], 'safe': 'extra-com-' + str(safe_start), 'thumb': 'legistream/img/thumbs/fed_placeholder.png'})
             safe_start += 1
 except:
     print('No extra federal committees detected.')
