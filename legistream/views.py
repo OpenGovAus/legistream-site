@@ -104,16 +104,13 @@ def tas(request):
     return(render(request, 'legistream/vic_tas.html', context=context))
 
 def vic(request):
-    #from . import vic
-    #context = {
-    #    'stream_urls': vic.vic_urls,
-    #    'parl': vic.parl_title,
-    #    'title': 'Victoria'
-    #}
+    from . import vic
+    context = gen_context()
+    context['stream_urls'] = vic.vic_urls
+    context['parl'] = vic.parl_title
+    context['title'] = 'Victoria Parliament'
 
-    context = {}
-
-    return(render(request, 'legistream/vic_tas.html', context=context))
+    return(render(request, 'legistream/stream_page.html', context=context))
 
 def wa(request):
     from . import wa

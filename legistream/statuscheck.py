@@ -54,6 +54,15 @@ def __nsw_stream(stream_object):
         data_dict[STREAM_STAT] = False
     return data_dict
 
+def __vic_stream(stream_object):
+    data_dict = {PARL_ID: 'Victoria', URL: '/vic'}
+
+    if(stream_object.lower_is_live or stream_object.upper_is_live):
+        data_dict[STREAM_STAT] = True
+    else:
+        data_dict[STREAM_STAT] = False
+    return data_dict
+
 def __wa_stream(stream_object):
     data_dict = {PARL_ID: 'WA'}
     data_dict[URL] = '/wa'
@@ -72,12 +81,14 @@ def write_parl_stats():
     from legistream_backend.nsw import Stream as nswStream
     from legistream_backend.nt import Stream as ntStream
     from legistream_backend.qld import Stream as qldStream
+    from legistream_backend.vic import Stream as vicStream
     from legistream_backend.wa import Stream as waStream
     streams.append(__act_stream(actStream()))
     streams.append(__fed_stream(fedStream()))
     streams.append(__nsw_stream(nswStream()))
     streams.append(__nt_stream(ntStream()))
     streams.append(__qld_stream(qldStream()))
+    streams.append(__vic_stream(vicStream()))
     streams.append(__wa_stream(waStream()))
     return(streams)
 
