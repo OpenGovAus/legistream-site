@@ -47,15 +47,14 @@
     {% endblock %}
 </head>
 <body>
-    <script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.14.1/videojs-contrib-hls.js"></script>
-    <script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
+    {% block videojs %}
+    {% endblock videojs %}
     <div id="stream-widget-container"></div>
     <nav id="navbar">
         <div class="dropdown">
             <button><a class="dropdown-link" id="home-btn" href="/">Home</a></button>
             <div class="parliament-dropdown">
-                <button id="parl-btn">Parliament <img class="dropdown-icn" src="{% static 'legistream/img/dropdown.svg' %}"></button>
+                <button id="parl-btn">Parliament <img alt="Dropdown arrow" class="dropdown-icn" src="{% static 'legistream/img/dropdown.svg' %}"></button>
                 <ul>
                     {% for parliament in dropdown_list %}
                         {% if parliament.radius %}
@@ -89,7 +88,7 @@
     {% block content %}
     {% endblock content %}
     <div id="lower-bar">
-        <a id="gh-hook" target="_blank" href="https://github.com/OpenGovAus/legistream-site" class="main-point"><img class="logo" src="{% static 'legistream/img/gh-logo.png' %}">View code on GitHub</a>
+        <a id="gh-hook" target="_blank" href="https://github.com/OpenGovAus/legistream-site" class="main-point"><img alt="GitHub Logo" class="logo" src="{% static 'legistream/img/gh-logo.png' %}">View code on GitHub</a>
     </div>
 </body>
 </html>

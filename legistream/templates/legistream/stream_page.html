@@ -9,6 +9,12 @@
     <meta property="og:description" content="Watch the {{ title }} live.">
 {% endblock headcontent %}
 
+{% block videojs %}
+    <script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.14.1/videojs-contrib-hls.js"></script>
+        <script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
+{% endblock videojs %}
+
 {% block content %}
     <style>
         html {
@@ -48,9 +54,9 @@
                 <div class="stream-container">
                     <div class="video-container">
                         {% if stream_amount <= 2 %}
-                            <img onclick="gen_widget('{{ stream.title }}', '{{ stream.url }}', '{{ stream.safe }}', `{% static 'legistream/img/back-button.png' %}`);" id='{{ stream.safe }}' class="stream-thumb" src="{% static stream.thumb %}" width="600" height="338">
+                            <img alt="{{ stream.title }} Thumbnail" onclick="gen_widget('{{ stream.title }}', '{{ stream.url }}', '{{ stream.safe }}', `{% static 'legistream/img/back-button.png' %}`);" id='{{ stream.safe }}' class="stream-thumb" src="{% static stream.thumb %}" width="600" height="338">
                         {% else %}
-                            <img onclick="gen_widget('{{ stream.title }}', '{{ stream.url }}', '{{ stream.safe }}', `{% static 'legistream/img/back-button.png' %}`);" id='{{ stream.safe }}' class="stream-thumb" src="{% static stream.thumb %}" width="400" height="225">
+                            <img alt="{{ stream.title }} Thumbnail" onclick="gen_widget('{{ stream.title }}', '{{ stream.url }}', '{{ stream.safe }}', `{% static 'legistream/img/back-button.png' %}`);" id='{{ stream.safe }}' class="stream-thumb" src="{% static stream.thumb %}" width="400" height="225">
                         {% endif %}
                     </div>
                     <p class="stream-label">Stream: <strong>{{ stream.title }}</strong></p>
