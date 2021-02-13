@@ -57,11 +57,7 @@
                 <button id="parl-btn">Parliament <img alt="Dropdown arrow" class="dropdown-icn" src="{% static 'legistream/img/dropdown.svg' %}"></button>
                 <ul>
                     {% for parliament in dropdown_list %}
-                        {% if parliament.radius %}
-                            <li style="border-radius: {{ parliament.radius }}"><a class="dropdown-content" href="{{ parliament.url }}">{{ parliament.parl }}</a></li>
-                        {% else %}
-                            <li><a class="dropdown-content" href="{{ parliament.url }}">{{ parliament.parl }}</a></li>
-                        {% endif %}
+                            <li {% if parliament.radius %} style="border-radius: {{ parliament.radius }}"{% endif %}><a class="dropdown-content" href="{{ parliament.url }}">{{ parliament.parl }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
@@ -89,6 +85,7 @@
     {% endblock content %}
     <div id="lower-bar">
         <a id="gh-hook" target="_blank" href="https://github.com/OpenGovAus/legistream-site" class="main-point"><img alt="GitHub Logo" class="logo" src="{% static 'legistream/img/gh-logo.png' %}">View code on GitHub</a>
+        <a id="tweet-hook" target="_blank" href="https://twitter.com/intent/tweet?text=Check%20out%20Legistream%20at%20https://legistream.org%20%0A%0A%23auspol%20%23ausdev" class="main-point"><img alt="GitHub Logo" class="logo" src="{% static 'legistream/img/gh-logo.png' %}">Share on Twitter</a>
     </div>
 </body>
 </html>
