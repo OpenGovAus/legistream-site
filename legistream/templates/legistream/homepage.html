@@ -1,6 +1,11 @@
 {% extends "legistream/global.html" %}
 {% load static %}
 
+{% block headcontent %}
+    <meta property="og:title" content="Legistream - Home">
+    <meta property="og:description" content="The easiest way to watch Aussie parliaments live.">
+{% endblock headcontent %}
+
 {% block content %}
     <div id="home-content">
         <a href="/" id="logo-text">LEGISTREAM</a>
