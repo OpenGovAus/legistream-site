@@ -64,8 +64,12 @@ li:hover {
     color: rgb(68, 219, 78);
 }
 
-#gh-hook:hover {
+.social-hook:hover {
     color: rgb(68, 219, 78);
+}
+
+.social-hook {
+    padding-left: 10pt;
 }
 
 .dropdown-content {

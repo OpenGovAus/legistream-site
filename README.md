@@ -10,6 +10,10 @@ Legistream uses our Python package [legistream-backend](https://github.com/OpenG
 
 # Setup
 
+## Install RabbitMQ
+
+You can find instructions for different hosts [here](https://www.rabbitmq.com/download.html).
+
 ## Virtual Environment
 
 Begin by setting up a virtual environment:
@@ -76,6 +80,18 @@ On first run:
 
 ```sh
 python3 manage.py migrate
+```
+
+Start the Celery worker:
+
+```sh
+celery -A legistream_site worker -l info --pool=solo
+```
+
+Start Celery Beat:
+
+```sh
+celery -A legistream_site beat -l info
 ```
 
 To run the server, use this command:

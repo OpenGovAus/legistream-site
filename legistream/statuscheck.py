@@ -1,6 +1,7 @@
 import os
 import json
 import time
+from time import sleep
 
 filepath = os.path.dirname(os.path.realpath(__file__)) + '/statuses/stream_stats.json'
 PARL_ID = 'parl'
@@ -92,21 +93,19 @@ def write_parl_stats():
     streams.append(__wa_stream(waStream()))
     return(streams)
 
-def write_json(current_time):
+def write_json():
     with open(filepath, 'w') as file:
-        data = [current_time, write_parl_stats()]
+        data = [int(time.time()), write_parl_stats()]
         file.write(json.dumps(data, indent=2))
     with open(filepath, 'r') as file:
         return(json.loads(file.read()))
 
 def check_statuses():
-    now = int(time.time())
     try:
         with open(filepath, 'r') as file:
             parsed_data = json.loads(file.read())
-            if(now - parsed_data[0] >= 300): # Check if 5 minutes or more has passed since the last stream check.
-                return(write_json(now)[1])
-            else:
-                return(parsed_data[1])
+            print('Using written JSON...')
+            return(parsed_data[1])
     except:
-        return(write_json(now)[1])
+        print('Using placeholder JSON...')
+        return json.loads(open(os.path.dirname(os.path.realpath(__file__)) + '/statuses/placeholder.json', 'r').read())[1]
