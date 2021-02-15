@@ -104,6 +104,7 @@ def check_statuses():
     try:
         with open(filepath, 'r') as file:
             parsed_data = json.loads(file.read())
+            open(os.path.dirname(os.path.realpath(__file__)) + '/statuses/placeholder.json', 'w').write(json.dumps(parsed_data, indent=2))
             print('Using written JSON...')
             return(parsed_data[1])
     except:
