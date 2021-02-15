@@ -13,6 +13,10 @@
     align-items: center;
     justify-content: center;
     align-content: center;
+    overflow-x: auto;
+    margin-left: 30pt;
+    margin-right: 30pt;
+    padding-bottom: 10pt;
 }
 
 #stream-video-container {
