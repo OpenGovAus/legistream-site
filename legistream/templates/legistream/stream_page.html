@@ -47,16 +47,12 @@
     <div class="title-container">
         <h1 id="logo-text">{{ parl }} Parliament</h1>
     </div>
-    <div id="streams-block">
+    <div id="streams-block" {%if stream_amount > 3 %}style="justify-content: left;"{% endif %}>
         {% if stream_urls %}
             {% for stream in stream_urls %}
                 <div class="stream-container">
                     <div class="video-container">
-                        {% if stream_amount <= 2 %}
-                            <img alt="{{ stream.title }} Thumbnail" onclick="gen_widget('{{ stream.title }}', '{{ stream.url }}', '{{ stream.safe }}', `{% static 'legistream/img/back-button.png' %}`);" id='{{ stream.safe }}' class="stream-thumb" src="{% static stream.thumb %}" width="600" height="338">
-                        {% else %}
-                            <img alt="{{ stream.title }} Thumbnail" onclick="gen_widget('{{ stream.title }}', '{{ stream.url }}', '{{ stream.safe }}', `{% static 'legistream/img/back-button.png' %}`);" id='{{ stream.safe }}' class="stream-thumb" src="{% static stream.thumb %}" width="400" height="225">
-                        {% endif %}
+                        <img alt="{{ stream.title }} Thumbnail" onclick="gen_widget('{{ stream.title }}', '{{ stream.url }}', '{{ stream.safe }}', `{% static 'legistream/img/back-button.png' %}`);" id='{{ stream.safe }}' class="stream-thumb" src="{% static stream.thumb %}" {% if stream_amount <= 2 %}width="600" height="338"{% else %}width="400" height="225"{% endif %}>                  
                     </div>
                     <p class="stream-label">Stream: <strong>{{ stream.title }}</strong></p>
                 </div>
