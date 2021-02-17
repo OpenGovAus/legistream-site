@@ -58,7 +58,7 @@ def __nsw_stream(stream_object):
 def __vic_stream(stream_object):
     data_dict = {PARL_ID: 'Victoria', URL: '/vic'}
 
-    if(stream_object.lower_is_live or stream_object.upper_is_live):
+    if(stream_object.lower_is_live or stream_object.upper_is_live or stream_object.committee_is_live):
         data_dict[STREAM_STAT] = True
     else:
         data_dict[STREAM_STAT] = False
