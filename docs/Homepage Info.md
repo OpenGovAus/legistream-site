@@ -10,4 +10,4 @@ The stream statuses are written to `legistream/statuses/stream_stats.json`, then
 
 ---
 
-The actual module that handles this function can be found at `legistream/statuscheck.py`, which basically just cycles through all the parliaments and checks if any of their streams are live. If any of them are, a `Ttue` value is written to `stream_stats.json`, if not, then a `false` value is written. It's pretty self explanatory: the parliaments with `true` values are then displayed under the "Currently Live Parliaments:" heading.
+The actual module that handles this function can be found at `legistream/statuscheck.py`, which basically just cycles through all the parliaments and checks if any of their streams are live. If any of them are, a `true` value is written to `stream_stats.json`, if not, then a `false` value is written. It's pretty self explanatory: the parliaments with `true` values are then displayed under the "Currently Live Parliaments:" heading.
