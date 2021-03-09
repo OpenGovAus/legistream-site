@@ -18,28 +18,28 @@
     <style>
         html {
             {% if title == 'NT Parliament' %}
-                background-image: url('{% static 'legistream/img/bg-ntparl.png' %}');
+                background-image: url('{% static 'legistream/img/bg-ntparl.webp' %}');
             {% endif %}
             {% if title == 'QLD Parliament' %}
-                background-image: url('{% static 'legistream/img/bg-qldparl.png' %}');
+                background-image: url('{% static 'legistream/img/bg-qldparl.webp' %}');
             {% endif %}
             {% if title == 'ACT Parliament' %}
-                background-image: url('{% static 'legistream/img/bg-actparl.png' %}');
+                background-image: url('{% static 'legistream/img/bg-actparl.webp' %}');
             {% endif %}
             {% if title == 'NSW Parliament' %}
-                background-image: url('{% static 'legistream/img/bg-nswparl.png' %}');
+                background-image: url('{% static 'legistream/img/bg-nswparl.webp' %}');
             {% endif %}
             {% if title == 'WA Parliament' %}
-                background-image: url('{% static 'legistream/img/bg-waparl.png' %}');
+                background-image: url('{% static 'legistream/img/bg-waparl.webp' %}');
             {% endif %}
             {% if title == 'Federal Parliament' %}
-                background-image: url('{% static 'legistream/img/bg-fedparl.png' %}');
+                background-image: url('{% static 'legistream/img/bg-fedparl.webp' %}');
             {% endif %}
             {% if title == 'Victoria Parliament' %}
-                background-image: url('{% static 'legistream/img/bg-vicparl.png' %}')
+                background-image: url('{% static 'legistream/img/bg-vicparl.webp' %}')
             {% endif %}
             {% if title == 'demoparl' %}
-                background-image: url('{% static 'legistream/img/bg-demoparl.png' %}');
+                background-image: url('{% static 'legistream/img/bg-demoparl.webp' %}');
             {%endif%}
         }
     </style>
@@ -52,7 +52,7 @@
             {% for stream in stream_urls %}
                 <div class="stream-container">
                     <div class="video-container">
-                        <img alt="{{ stream.title }} Thumbnail" onclick="gen_widget('{{ stream.title }}', '{{ stream.url }}', '{{ stream.safe }}', `{% static 'legistream/img/back-button.png' %}`);" id='{{ stream.safe }}' class="stream-thumb" src="{% static stream.thumb %}" {% if stream_amount <= 2 %}width="600" height="338"{% else %}width="400" height="225"{% endif %}>                  
+                        <img alt="{{ stream.title }} Thumbnail" onclick="gen_widget('{{ stream.title }}', '{{ stream.url }}', '{{ stream.safe }}', `{% static 'legistream/img/back-button.webp' %}`);" id='{{ stream.safe }}' class="stream-thumb" src="{% static stream.thumb %}" {% if stream_amount <= 2 %}width="600" height="338"{% else %}width="400" height="225"{% endif %}>                  
                     </div>
                     <p class="stream-label">Stream: <strong>{{ stream.title }}</strong></p>
                 </div>

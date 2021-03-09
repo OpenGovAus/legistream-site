@@ -16,6 +16,6 @@ except:
     nt_islive = json.loads(open(directory + 'placeholder.json', 'r').read())[1][3]['stat']
 
 if(nt_islive):
-    nt_urls.append({'url': nt_stream.lower_stream_url, 'title': 'Legislative Assembly', 'safe': 'legislative-assembly-vid', 'thumb': 'legistream/img/thumbs/nt_la.png'})
+    nt_urls.append({'url': nt_stream.lower_stream_url, 'title': 'Legislative Assembly', 'safe': 'legislative-assembly-vid', 'thumb': 'legistream/img/thumbs/nt_la.webp'})
 
 parl_title = 'Northern Territory'
