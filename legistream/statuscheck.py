@@ -40,7 +40,7 @@ def __qld_stream(stream_object):
 def __fed_stream(stream_object):
     data_dict = {PARL_ID: 'Federal'}
     data_dict[URL] = '/federal'
-    if(stream_object.lower_is_live or stream_object.upper_is_live or stream_object.committee_is_live):
+    if(stream_object.lower_is_live or stream_object.upper_is_live or stream_object.committee_is_live or stream_object.stream_urls['extra_committees']):
         data_dict[STREAM_STAT] = True
     else:
         data_dict[STREAM_STAT] = False
