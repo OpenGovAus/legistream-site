@@ -40,7 +40,13 @@ def __qld_stream(stream_object):
 def __fed_stream(stream_object):
     data_dict = {PARL_ID: 'Federal'}
     data_dict[URL] = '/federal'
-    if(stream_object.lower_is_live or stream_object.upper_is_live or stream_object.committee_is_live or stream_object.stream_urls['extra_committees']):
+    try: # This is my stupid solution to the site-breaking error that happens if no extra committees are detected
+        stream_object.stream_urls['extra_committees']
+        extra_comms = True
+    except:
+        extra_comms = False
+
+    if(stream_object.lower_is_live or stream_object.upper_is_live or stream_object.committee_is_live or extra_comms):
         data_dict[STREAM_STAT] = True
     else:
         data_dict[STREAM_STAT] = False
