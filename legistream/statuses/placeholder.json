@@ -1,5 +1,5 @@
 [
-  1615619940,
+  1615629224,
   [
     {
       "parl": "ACT",
@@ -29,6 +29,8 @@
     },
     {
       "parl": "Tasmania",
+      "lower_stat": false,
+      "upper_stat": false,
       "url": "/tas",
       "stat": false
     },

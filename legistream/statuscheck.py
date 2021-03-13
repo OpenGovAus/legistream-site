@@ -62,9 +62,9 @@ def __nsw_stream(stream_object):
     return data_dict
 
 def __tas_stream(stream_object):
-    data_dict = {PARL_ID: 'Tasmania'}
+    data_dict = {PARL_ID: 'Tasmania', 'lower_stat': stream_object.lower_is_live, 'upper_stat': stream_object.upper_is_live}
     data_dict[URL] = '/tas'
-    if(stream_object.lower_is_live or stream_object.upper_is_live):
+    if(data_dict['lower_stat'] or data_dict['upper_stat']):
         data_dict[STREAM_STAT] = True
     else:
         data_dict[STREAM_STAT] = False
