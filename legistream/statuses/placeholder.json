@@ -1,5 +1,5 @@
 [
-  1613349821,
+  1615681917,
   [
     {
       "parl": "ACT",
@@ -10,7 +10,7 @@
     {
       "parl": "Federal",
       "url": "/federal",
-      "stat": true
+      "stat": false
     },
     {
       "parl": "NSW",
@@ -25,6 +25,13 @@
     {
       "parl": "QLD",
       "url": "/qld",
+      "stat": false
+    },
+    {
+      "parl": "Tasmania",
+      "lower_stat": false,
+      "upper_stat": false,
+      "url": "/tas",
       "stat": false
     },
     {
