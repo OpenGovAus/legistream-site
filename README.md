@@ -97,7 +97,7 @@ celery -A legistream_site beat -l info
 To run the server, use this command:
 
 ```sh
-python3 manage.py runserver
+python3 manage.py runserver --insecure
 ```
 
 If you get any errors, make sure you've set up your virtual environment correctly and that you've installed all the required dependencies.
