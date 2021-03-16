@@ -13,7 +13,7 @@ tas_urls = []
 
 if(_from_json['lower_stat']):
     tas_urls.append({'url': tas_stream.lower_stream_url, 'title': 'House of Assembly', 'safe': 'house-assembly-vid', 'thumb': 'legistream/img/thumbs/tas_hoa.webp'})
-if(_from_json['upper_stat']):
+'''if(_from_json['upper_stat']):
     tas_urls.append({'url': tas_stream.upper_stream_url, 'title': 'Legislative Council', 'safe': 'legislative-council-vid', 'thumb': 'legistream/img/thumbs/tas_lc.webp'})
-
+'''
 parl_title = 'Tasmania'
