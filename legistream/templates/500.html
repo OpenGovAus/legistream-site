@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="description" content="Mate, there's nothing here.">
+    <link rel="stylesheet" href="{% static 'legistream/css/home.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+    <link rel="stylesheet" href="{% static '404.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internal Server Error</title>
+</head>
+<body>
+    <style>
+        html {
+            background-image: url("{% static 'legistream/img/bg-demoparl.webp' %}");
+        }
+    </style>
+    <h1 id="logo-text">ERROR <p class="highlight">500</p></h1>
+    <div id="content">
+        <h3 class="main-point">Something has gone very wrong.</h3>
+        <p class="main-point">Please let us know by <strong><a class="main-point" target="_blank" href="https://github.com/OpenGovAus/legistream-site/issues/new/choose">opening an Issue on GitHub</a></strong>.</p>
+    </div>
+    <a class="dropdown-link" href="/">Home</a>
+</body>
+</html>
