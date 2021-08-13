@@ -41,27 +41,31 @@ def watch(request):
     parl_mod = resolve(request.path_info) \
         .url_name.replace('-parliament', '')
 
-    exec(f'from legistream_backend.site.{parl_mod} import '
-         f'{parl_mod.upper()}StreamExtractor as StreamExtr'
-         f'actor', globals())
+    try:
+        exec(f'from legistream_backend.site.{parl_mod} import '
+             f'{parl_mod.upper()}StreamExtractor as StreamExtr'
+             f'actor', globals())
 
-    stream_obj = StreamExtractor()
-    streams = stream_obj.streams
+        stream_obj = StreamExtractor()
+        streams = stream_obj.streams
 
-    context['stream_urls'] = [
-        {
-            'url': stream.url,
-            'title': stream.title,
-            'safe': md5(stream.title.lower()
-                        .replace(' ', '-').encode()).hexdigest(),
-            'thumb': f'/legistream/img/thumbs/{stream.thumb}'
-        } for stream in streams if stream.is_live
-    ]
-    context['parl'] = stream_obj.extractor_name
-    context['title'] = f'{stream_obj.extractor_name} Parliament'
-    context['stream_amount'] = len(context['stream_urls'])
+        context['stream_urls'] = [
+            {
+                'url': stream.url,
+                'title': stream.title,
+                'safe': md5(stream.title.lower()
+                            .replace(' ', '-').encode()).hexdigest(),
+                'thumb': f'/legistream/img/thumbs/{stream.thumb}'
+            } for stream in streams if stream.is_live
+        ]
+        context['parl'] = stream_obj.extractor_name
+        context['title'] = f'{stream_obj.extractor_name} Parliament'
+        context['stream_amount'] = len(context['stream_urls'])
 
-    return render(request, 'legistream/stream_page.html', context=context)
+        return render(request, 'legistream/stream_page.html', context=context)
+    except Exception as e:
+        raise Exception(f'\nAn error ocurred when trying to render the'
+                        f' {parl_mod.upper} page;\n\n{str(e)}.')
 
 
 def info(request):

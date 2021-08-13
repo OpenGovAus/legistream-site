@@ -65,6 +65,12 @@ poetry run python3 manage.py makemigrations legistream
 poetry run python3 manage.py migrate
 ```
 
+Clear pending tasks:
+
+```sh
+poetry run celery -A legistream_site purge
+```
+
 Start the Celery worker:
 
 ```sh
