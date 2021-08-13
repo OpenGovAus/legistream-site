@@ -44,6 +44,7 @@ html {
     display: flex;
     justify-items: left;
     margin-top: 20px;
+    margin-left: 60px;
 }
 
 .parliament-dropdown {
@@ -70,6 +71,11 @@ li {
     align-items: center;
     text-align: center;
     font-family: pn-light;
+    border-radius: 60px;
+    margin-bottom: 5%;
+    border-color: rgb(68, 219, 78);
+    border-width: 2px;
+    border-style: solid;
 }
 
 li:hover {
@@ -97,7 +103,6 @@ li:hover {
 }
 
 ul {
-    background-color: rgb(66, 66, 66);
     position: absolute;
     list-style: none;
     display: flex;
@@ -105,8 +110,7 @@ ul {
     align-items: center;
     flex-direction: column;
     width: 170px;
-    border-radius: 10px;
-    margin-left: 22pt;
+    margin-left: 12.75pt;
     margin-top: 5pt;
     opacity: 0;
     visibility: hidden;
@@ -122,18 +126,19 @@ ul {
 }
 
 button {
+    font-family: pn-regular;
     background-color: transparent;
     border: none;
     color: rgb(223, 223, 223);
-    padding-left: 45px;
+    padding: 10px 22.5px; 
+    border-radius: 60px;
+    border-width: 2px;
+    border-style: solid;
+    margin-right: 50pt;
 }
 
 button, li {
-    font-size: 25pt;
-}
-
-button {
-    font-family: pn-regular;
+    font-size: 20pt;
 }
 
 .parliament-dropdown button:focus + ul {
@@ -168,7 +173,7 @@ a {
 }
 
 #logo-text:hover {
-    color: rgb(139, 139, 139);
+    color: rgb(199, 199, 199);
 }
 
 #opengov-container {

@@ -27,7 +27,7 @@
         <div id="stream-widget-container"></div>
         <nav id="navbar">
             <div class="dropdown">
-                <button><a class="dropdown-link" id="home-btn" href="/">Home</a></button>
+                <button id="home-btn"><a class="dropdown-link" href="/">Home</a></button>
                 <div class="parliament-dropdown">
                     <button id="parl-btn">Parliament <img alt="Dropdown arrow" class="dropdown-icn" src="{% static 'legistream/img/dropdown.svg' %}"></button>
                     <ul>
@@ -36,18 +36,12 @@
                         {% endfor %}
                     </ul>
                 </div>
-                <button><a id="info-btn" class="dropdown-link" href="/info">Info</a></button>
             </div>
         </nav>
         <script type="text/javascript">
             if(window.location.pathname == '/')
             {
                 document.getElementById('home-btn').style.color = '#44DB4E'
-            }
-            else if(window.location.pathname == '/info' || window.location.pathname == '/info/')
-            {
-                document.getElementById('info-btn').style.color = '#44DB4E'
-                
             }
             else {
                 document.getElementById('parl-btn').style.color = '#44DB4E'
