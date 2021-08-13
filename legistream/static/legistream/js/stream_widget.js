@@ -40,6 +40,18 @@ function gen_widget(stream_title, stream_url, stream_safe, back_btn_loc)
     widget_container.style.height = '100%'
     widget_container.style.backgroundColor = 'rgba(24, 24, 24, 0.97)'
     widget_container.style.top = '0'
+    widget_container.addEventListener('click', function close_widget_wrapper(event) {
+        // Closes the stream when the background is clicked.
+        // NOTE: We must use an named function
+        // rather than an anonymous function
+        // to call the close_widget function.
+        // Only close the stream if the parent (this) is clicked.
+        if (event.target === this) {
+            close_widget(stream_safe)
+            // Clean up the event listener. 
+            widget_container.removeEventListener('click', close_widget_wrapper)
+        }
+    })
 
     opengov_container = document.getElementById('opengov-container')
     opengov_container.style.transition = 'all 0.0s'
