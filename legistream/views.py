@@ -55,8 +55,8 @@ def watch(request):
             'title': stream.title,
             'safe': md5(stream.title.lower()
                         .replace(' ', '-').encode()).hexdigest(),
-            'thumb': '/legistream/img/thumbs/'  # TODO
-        } for stream in streams
+            'thumb': f'/legistream/img/thumbs/{stream.thumb}'
+        } for stream in streams if stream.is_live
     ]
     context['parl'] = stream_obj.extractor_name
     context['title'] = f'{stream_obj.extractor_name} Parliament'
