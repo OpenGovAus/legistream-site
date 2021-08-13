@@ -11,7 +11,6 @@ and dynamically generate the URLs for them using inspect().
 
 urlpatterns = [
     path('', views.home, name='legistream-home'),
-    path('info/', views.info, name='info-pg'),
     path('robots.txt', TemplateView.as_view(
         template_name='legistream/robots.txt', content_type='text/plain'))
 ]
