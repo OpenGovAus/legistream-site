@@ -4,8 +4,23 @@
 }
 
 @font-face {
-    font-family: 'dosis';
-    src: url('../fonts/dosis.ttf');
+    font-family: 'pn-regular';
+    src: url('../fonts/pn-regular.woff2');
+}
+
+@font-face {
+    font-family: 'pn-light';
+    src: url('../fonts/pn-light.woff2');
+}
+
+::-moz-selection { /* Code for Firefox */
+    color: white;
+    background: rgb(49, 161, 57);
+}
+  
+::selection {
+    color: white;
+    background: rgb(49, 161, 57);
 }
 
 * {
@@ -54,6 +69,7 @@ li {
     justify-content: center;
     align-items: center;
     text-align: center;
+    font-family: pn-light;
 }
 
 li:hover {
@@ -113,8 +129,11 @@ button {
 }
 
 button, li {
-    font-family: dosis;
     font-size: 25pt;
+}
+
+button {
+    font-family: pn-regular;
 }
 
 .parliament-dropdown button:focus + ul {
@@ -124,7 +143,7 @@ button, li {
 }
 
 .parliament-dropdown button:focus img {
-    transform: rotate(180deg);
+    transform: rotate(90deg);
     transform-origin: center center;
 }
 
@@ -148,6 +167,10 @@ a {
     color: rgb(223, 223, 223);
 }
 
+#logo-text:hover {
+    color: rgb(139, 139, 139);
+}
+
 #opengov-container {
     position: absolute;
     right: 25pt;
@@ -166,7 +189,7 @@ a {
 }
 
 .main-point {
-    font-family: dosis;
+    font-family: pn-regular;
     font-size: 25px;
     color: rgb(223, 223, 223);
     position: relative;
@@ -189,13 +212,20 @@ a {
 
 #brand-hook-wink-wink {
     color: rgb(223, 223, 223);
-    font-family: dosis;
+    font-family: pn-light;
     font-weight: normal;
     font-size: 40pt;
     padding-top: 10px;
     padding-bottom: 40px;
+    cursor: default;
 }
 
 strong {
     color: rgb(68, 219, 78);
+}
+
+.parl-msg {
+    font-family: pn-light;
+    font-size: 25px;
+    cursor: default;
 }
