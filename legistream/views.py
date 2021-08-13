@@ -8,13 +8,16 @@ from .status_checker import statuscheck
 
 def grammarfy(parl_list):
     if(len(parl_list) == 1):
-        parl_list[0]['parl'] = '%s.' % (parl_list[0]['parl'])
+        parl_list.append({'parl': '.', 'url': None})
         return(parl_list)
     try:
+        new_list = []
         for parl in parl_list[:-1]:
-            parl['parl'] = '%s, ' % (parl['parl'])
-        parl_list[-1]['parl'] = 'and %s.' % (parl_list[-1]['parl'])
-        return(parl_list)
+            new_list.append(parl)
+            new_list.append({'parl': ', ', 'url': None})
+        new_list.append({'parl': 'and ', 'url': None})
+        new_list.append(parl_list[-1])
+        return(new_list)
     except Exception:
         return([])
 
