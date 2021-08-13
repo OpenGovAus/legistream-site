@@ -3,7 +3,7 @@ from django.urls import resolve
 from django.shortcuts import render
 
 
-from . import statuscheck
+from .status_checker import statuscheck
 
 
 def grammarfy(parl_list):
@@ -23,8 +23,7 @@ def gen_context():
     live_parls = []
     for parliament in statuscheck.check_statuses():
         if(parliament['stat']):
-            dummy = parliament
-            live_parls.append(dummy)
+            live_parls.append(parliament)
     return {
         'dropdown_list': statuscheck.check_statuses(),
         'live_parls': grammarfy(live_parls),

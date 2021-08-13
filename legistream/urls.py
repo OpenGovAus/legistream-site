@@ -1,10 +1,7 @@
 from django.urls import path
 from . import views
 from django.views.generic import TemplateView
-from . import modpath
-
-
-import os
+from . import module_list
 
 
 '''
@@ -19,8 +16,6 @@ urlpatterns = [
         template_name='legistream/robots.txt', content_type='text/plain'))
 ]
 
-module_list = [os.path.splitext(f)[0] for f in os.listdir(modpath)
-               if os.path.isfile(os.path.join(modpath, f))]
 
 for mod in module_list:
     exec(f'urlpatterns.append(path("{mod}/", views.watch, '

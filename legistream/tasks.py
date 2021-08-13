@@ -6,5 +6,5 @@ from .status_checker import statuscheck
 
 @shared_task
 def get_streams():
-    statuscheck.write_json()
+    statuscheck.write_statuses()
     return('File written succesfully.')
