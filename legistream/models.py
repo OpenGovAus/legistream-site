@@ -1,3 +1,6 @@
 from django.db import models
 
-# Create your models here.
+
+class Streams(models.Model):
+    timestamp = models.IntegerField()
+    streams_dict = models.CharField(max_length=300)
