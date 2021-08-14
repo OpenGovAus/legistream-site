@@ -1,6 +1,6 @@
 #home-info {
     position: absolute;
-    top: 100%;
+    top: calc(100% - 10px);
     z-index: -1;
 }
 
@@ -48,4 +48,8 @@
     height: 10px;
     background-color: rgb(68, 219, 78);
     margin-bottom: 50px;
+}
+
+#grn-break:hover {
+    cursor: pointer;
 }

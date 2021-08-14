@@ -66,7 +66,7 @@ var gen_widget = (stream_title, stream_url, stream_safe, back_btn_loc) => {
                 position: absolute;
             }
             #back-btn-img {
-                height: 18pt;
+                height: 11pt;
                 padding-right: 5pt;
             }
             #back-btn:hover {

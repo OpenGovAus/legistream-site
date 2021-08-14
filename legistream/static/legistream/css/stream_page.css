@@ -1,6 +1,8 @@
 .title-container {
     text-align: center;
+    cursor: default;
 }
+
 #logo-text {
     font-size: 55pt;
     text-transform: uppercase;
@@ -68,4 +70,5 @@
     font-family: pn-regular;   
     font-size: 15pt;
     color: rgb(223,223,223);
+    cursor: default;
 }
