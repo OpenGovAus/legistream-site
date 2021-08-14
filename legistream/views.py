@@ -68,4 +68,4 @@ def watch(request):
         return render(request, 'legistream/stream_page.html', context=context)
     except Exception as e:
         raise Exception(f'\nAn error ocurred when trying to render the'
-                        f' {parl_mod.upper} page;\n\n{str(e)}.')
+                        f' {parl_mod.upper()} page;\n\n{str(e)}.')

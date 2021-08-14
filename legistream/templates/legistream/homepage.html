@@ -5,6 +5,7 @@
     <meta property="og:title" content="Legistream - Home">
     <meta property="og:description" content="The easiest way to watch Aussie parliaments live.">
     <meta name="description" content="The easiest way to watch Aussie parliaments live.">
+    <link rel="stylesheet" href="{% static 'legistream/css/home-content.css' %}">
 {% endblock headcontent %}
 
 {% block content %}
@@ -24,6 +25,34 @@
             {% else %}
                     <p class="main-point">No parliaments are currently live...</p>
             {% endif %}
+        </div>
+    </div>
+    <div class="dark-div" id="home-info">
+        <div id="info-block">
+            <div id="grn-break"></div>
+            <h1>Info</h1>
+            <p>Legistream is <a href="https://github.com/OpenGovAus">Open Gov Australia</a>'s solution to stream all 
+                nine Australian parliaments in one place.<br>It is designed to efficiently gather the various streams using
+                <a href="https://github.com/OpenGovAus/legistream-backend">open-source code</a>, and to provide them to the
+                Australian public in a simple way.
+            </p>
+            <h2>The back end</h2>
+            <p>Legistream's background is where the real magic happens. The package scrapes parliament web pages and 
+                interacts with their APIs to obtain three key pieces of information: is the stream live, what is its URL, 
+                and which chamber of parliament is it associated with? 
+            </p>
+            <h2>The front end</h2>
+            <p>After this, the job is given to the front end (the site) to turn that raw data into 
+                something usable. The site uses video.js to play the stream URLs returned by 
+                <a href="https://github.com/OpenGovAus/legistream-backend">legistream-backend</a> on each 
+                parliament's page. The site runs on the Django web framework, and was built entirely from scratch.
+            </p>
+            <h2>Notes</h2>
+            <p>
+                Contribution is encouraged! If you have ideas to help improve Legistream, tell us, or make 
+                them yourself and open a <a href="https://github.com/OpenGovAus/legistream-site/pulls">pull request</a> 
+                on GitHub.
+            </p>
         </div>
     </div>
 {% endblock content %}

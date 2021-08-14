@@ -37,13 +37,15 @@ html {
     background-image: url('../img/bg-fedparl.webp');
     background-repeat: no-repeat;
     background-size:cover;
+    background-attachment: fixed;
     color: white;
 }
 
 .dropdown {
     display: flex;
     justify-items: left;
-    margin-top: 20px;
+    position: fixed;
+    top: 20px;
     margin-left: 60px;
 }
 
@@ -59,7 +61,7 @@ html {
 .dropdown-icn {
     width: 15px;
     margin-left: 4pt;
-    top: -4px;
+    top: -3px;
     position: relative;
 }
 
@@ -73,13 +75,17 @@ li {
     font-family: pn-light;
     border-radius: 60px;
     margin-bottom: 5%;
-    border-color: rgb(68, 219, 78);
+    border-color: white;
     border-width: 2px;
     border-style: solid;
 }
 
 li:hover {
-    background-color: rgb(49, 161, 57);
+    border-color: rgb(68, 219, 78);
+}
+
+li:hover a {
+    color: rgb(68, 219, 78);
 }
 
 .parl-hook:hover {
@@ -110,7 +116,7 @@ ul {
     align-items: center;
     flex-direction: column;
     width: 170px;
-    margin-left: 12.75pt;
+    margin-left: 3.5px;
     margin-top: 5pt;
     opacity: 0;
     visibility: hidden;
@@ -119,10 +125,6 @@ ul {
 .dropdown-link {
     color: rgb(223, 223, 223);
     text-decoration: none;
-}
-
-.dropdown-link:hover {
-    color: rgb(68, 219, 78);
 }
 
 button {
@@ -138,7 +140,7 @@ button {
 }
 
 button, li {
-    font-size: 20pt;
+    font-size: 15pt;
 }
 
 .parliament-dropdown button:focus + ul {
@@ -152,7 +154,11 @@ button, li {
     transform-origin: center center;
 }
 
-.parliament-dropdown button:hover {
+#parl-btn {
+    width: 175px;
+}
+
+.parliament-dropdown button:hover, #home-btn:hover {
     color: rgb(68, 219, 78);
     cursor: pointer;
 }
@@ -163,7 +169,7 @@ a {
 
 #home-content {
     text-align: center;
-    margin-top: 100pt;
+    margin-top: 150pt;
 }
 
 #logo-text {

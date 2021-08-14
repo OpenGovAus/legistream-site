@@ -10,8 +10,8 @@
 {% endblock headcontent %}
 
 {% block videojs %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.14.1/videojs-contrib-hls.js"></script>
-    <script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
+    <script src="{% static 'legistream/js/videojs/videojs-contrib-hls.js' %}"></script>
+    <script src="{% static 'legistream/js/videojs/video.min.js' %}"></script>
 {% endblock videojs %}
 
 {% block content %}

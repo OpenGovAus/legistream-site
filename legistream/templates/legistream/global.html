@@ -22,12 +22,13 @@
         {% endblock %}
     </head>
     <body>
+        <script src="{% static 'legistream/js/jquery-3.6.0.min.js' %}"></script>
         {% block videojs %}
         {% endblock videojs %}
         <div id="stream-widget-container"></div>
         <nav id="navbar">
             <div class="dropdown">
-                <button id="home-btn"><a class="dropdown-link" href="/">Home</a></button>
+                <button id="home-btn" onclick="window.location = '/'">Home</button>
                 <div class="parliament-dropdown">
                     <button id="parl-btn">Parliament <img alt="Dropdown arrow" class="dropdown-icn" src="{% static 'legistream/img/dropdown.svg' %}"></button>
                     <ul>
@@ -39,12 +40,14 @@
             </div>
         </nav>
         <script type="text/javascript">
+            greenColour = '#44DB4E'
             if(window.location.pathname == '/')
             {
-                document.getElementById('home-btn').style.color = '#44DB4E'
+                $('#home-btn').css('color', greenColour);
+                $('#home-btn').find('a').css('color', greenColour)
             }
             else {
-                document.getElementById('parl-btn').style.color = '#44DB4E'
+                $('#parl-btn').css('color', greenColour)
             }
         </script>
         <div id="opengov-container">
