@@ -78,7 +78,9 @@ li {
     border-color: white;
     border-width: 2px;
     border-style: solid;
+    background-color: rgb(23,23,23);
 }
+
 
 li:hover {
     border-color: rgb(68, 219, 78);
@@ -97,6 +99,7 @@ li:hover a {
 }
 
 .social-hook {
+    z-index: -1;
     padding-left: 10pt;
 }
 
@@ -120,6 +123,7 @@ ul {
     margin-top: 5pt;
     opacity: 0;
     visibility: hidden;
+    z-index: 10;
 }
 
 .dropdown-link {
