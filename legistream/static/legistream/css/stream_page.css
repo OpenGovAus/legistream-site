@@ -90,3 +90,7 @@
     color: rgb(223,223,223);
     cursor: default;
 }
+
+.stream-label:hover {
+    cursor: pointer;
+}

@@ -64,6 +64,7 @@ def watch(request):
                     {
                         'url': stream.url,
                         'title': stream_title,
+                        'full_title': stream.title,
                         'safe': md5(stream.title.lower()
                                     .replace(' ', '-').encode()).hexdigest(),
                         'thumb': f'/legistream/img/thumbs/{stream.thumb}'

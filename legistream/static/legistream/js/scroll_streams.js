@@ -6,11 +6,22 @@ var scrollSlide = (distance) => {
     });
 };
 
+
+var displayTitle = (text) => {
+    strong = $(`strong[onmouseover="displayTitle('${text}')"]`);
+    bakText = strong.text();
+    strong.text(text);
+    strong.mouseleave(() => {
+        strong.text(bakText);
+    });
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
     if($('.stream-container').length < 3) {
         $('#streams-block').css({
             'flexDirection': 'column',
             'alignItems': 'center'
-        })
-    }
-})
+        });
+    };
+});
