@@ -11,14 +11,32 @@
 }
 
 #streams-block {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    overflow-x: auto;
+    padding: 0 90px;
     margin-left: 30pt;
     margin-right: 30pt;
     padding-bottom: 10pt;
+    display: flex;
+}
+
+#right {
+    transform: scaleX(-1);
+}
+
+.scroll-btn {
+    height: 50px;
+    align-self: center;
+}
+
+.scroll-btn:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+#streams-padding {
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    align-content: center;
 }
 
 #stream-video-container {

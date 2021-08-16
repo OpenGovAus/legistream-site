@@ -52,15 +52,24 @@ def watch(request):
         stream_obj = StreamExtractor()
         streams = stream_obj.streams
 
-        context['stream_urls'] = [
-            {
-                'url': stream.url,
-                'title': stream.title,
-                'safe': md5(stream.title.lower()
-                            .replace(' ', '-').encode()).hexdigest(),
-                'thumb': f'/legistream/img/thumbs/{stream.thumb}'
-            } for stream in streams if stream.is_live
-        ]
+        context['stream_urls'] = []
+        for stream in streams:
+            if stream.is_live:
+                if len(stream.title) >= 46:
+                    stream_title = stream.title[:43] + '...'
+                else:
+                    stream_title = stream.title
+
+                context['stream_urls'].append(
+                    {
+                        'url': stream.url,
+                        'title': stream_title,
+                        'safe': md5(stream.title.lower()
+                                    .replace(' ', '-').encode()).hexdigest(),
+                        'thumb': f'/legistream/img/thumbs/{stream.thumb}'
+                    }
+                )
+
         context['parl'] = stream_obj.extractor_name
         context['title'] = f'{stream_obj.extractor_name} Parliament'
         context['stream_amount'] = len(context['stream_urls'])

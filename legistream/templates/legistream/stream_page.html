@@ -47,11 +47,16 @@
         }
     </style>
     <script src="{% static 'legistream/js/stream_widget.js' %}"></script>
+    <script src="{% static 'legistream/js/scroll_streams.js' %}"></script>
     <div class="title-container">
         <h1 id="logo-text">{{ parl }} Parliament</h1>
     </div>
     <div id="streams-block" {%if stream_amount > 3 %}style="justify-content: left;"{% endif %}>
         {% if stream_urls %}
+            {% if stream_amount >= 3 %}
+                <img onclick="scrollSlide(-450)" class="scroll-btn" src="{% static 'legistream/img/back-button.webp' %}">
+            {% endif %}
+        <div id="streams-padding">
             {% for stream in stream_urls %}
                 <div class="stream-container">
                     <div class="video-container">
@@ -60,6 +65,10 @@
                     <p class="stream-label">Stream: <strong>{{ stream.title }}</strong></p>
                 </div>
             {% endfor %}
+        </div>
+            {% if stream_amount >= 3 %}
+                <img id="right" onclick="scrollSlide(450)" class="scroll-btn" src="{% static 'legistream/img/back-button.webp' %}">
+            {% endif %}
         {% else %}
                 <p class="stream-label">This parliament is not currently broadcasting.</p>
         {% endif %}
