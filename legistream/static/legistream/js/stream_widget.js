@@ -57,8 +57,9 @@ var gen_widget = (stream_title, stream_url, stream_safe, back_btn_loc) => {
             }
             #stream-text {
                 padding: 30px;
-                font-size: 55pt;
+                font-size: 40px;
                 font-family:gilroy;
+                width: 80%;
             }
             #back-btn {
                 right: 40px;
