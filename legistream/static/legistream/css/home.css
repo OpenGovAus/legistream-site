@@ -47,18 +47,16 @@ html {
     position: fixed;
     top: 20px;
     margin-left: 60px;
+    z-index: 1;
 }
 
 .parliament-dropdown {
     position: relative;
-    z-index: 10;
 }
 
 #stream-widget-container {
     position: absolute;
 }
-
-
 
 li {
     width: 100%;
@@ -104,7 +102,7 @@ li {
     }
 
     .social-hook {
-        z-index: -1;
+        z-index: 0;
         padding-left: 10pt;
     }
 
@@ -128,7 +126,6 @@ li {
         margin-top: 5pt;
         opacity: 0;
         visibility: hidden;
-        z-index: 10;
     }
 
     .dropdown-link {

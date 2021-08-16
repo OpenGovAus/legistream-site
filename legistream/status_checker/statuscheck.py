@@ -26,13 +26,14 @@ def write_statuses():
             print(f'\nWriting\n{json.dumps(data_dict, indent=2)}')
             parl_list.append(data_dict)
         except Exception as e:
-            parl_list.append({
-                'parl': parl_id,
-                'url': path,
-                'stat': False
-            })
+            # parl_list.append({
+            #     'parl': parl_id,
+            #     'url': path,
+            #     'stat': False
+            # })
             print(f'An error ocurred when trying to '
                   f'parse the {mod} module;\n\n{str(e)}')
+            continue
 
     if len(Streams.objects.all()) > 1:
         for s in Streams.objects.all()[1:]:

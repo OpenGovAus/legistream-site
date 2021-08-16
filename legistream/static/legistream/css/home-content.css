@@ -4,6 +4,25 @@
     z-index: -1;
 }
 
+#scroll-top {
+    rotate: 90deg;
+    position: absolute;
+    border-radius: 15px;
+    bottom: 65px;
+    right: 35px;
+    padding-left: 20px;
+}
+
+#scroll-top:hover {
+    color: rgb(68, 219, 78);
+    cursor: pointer;
+}
+
+#scroll-top img {
+    height: 30px;
+    padding-top: 22%;
+}
+
 #info-block {
     width: 48%;
 }
