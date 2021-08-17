@@ -8,7 +8,7 @@ var scrollSlide = (distance) => {
 
 
 var displayTitle = (text) => {
-    strong = $(`strong[onmouseover="displayTitle('${text}')"]`);
+    strong = $(`strong[onmouseover="displayTitle('${text}');"]`);
     bakText = strong.text();
     strong.text(text);
     strong.mouseleave(() => {
