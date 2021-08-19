@@ -23,22 +23,31 @@
     </head>
     <body>
         <script src="{% static 'legistream/js/jquery-3.6.0.min.js' %}"></script>
+        <script src="{% static 'legistream/js/mob_menu.js' %}"></script>
         {% block videojs %}
         {% endblock videojs %}
-        <div id="stream-widget-container"></div>
-        <nav id="navbar">
-            <div class="dropdown">
-                <button id="home-btn" onclick="window.location = '/'">Home</button>
-                <div class="parliament-dropdown">
-                    <button id="parl-btn">Parliament <img alt="Dropdown arrow" class="dropdown-icn" src="{% static 'legistream/img/dropdown.svg' %}"></button>
-                    <ul>
-                        {% for parliament in dropdown_list %}
-                                <li {% if parliament.radius %} style="border-radius: {{ parliament.radius }}"{% endif %}><a class="dropdown-content" href="{{ parliament.url }}">{{ parliament.parl }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
+        <div class="menucontainer">
+            <div class="menubtncontainer">
+                <div class="menu_opener"></div>
             </div>
-        </nav>
+            <div class="fullmenu">
+                <nav id="navbar">
+                    <div class="dropdown">
+                        <button id="home-btn" onclick="window.location = '/'">Home</button>
+                        <div class="parliament-dropdown">
+                            <button id="parl-btn">Parliament <img alt="Dropdown arrow" class="dropdown-icn" src="{% static 'legistream/img/dropdown.svg' %}"></button>
+                            <ul>
+                                {% for parliament in dropdown_list %}
+                                        <li {% if parliament.radius %} style="border-radius: {{ parliament.radius }}"{% endif %}><a class="dropdown-content" href="{{ parliament.url }}">{{ parliament.parl }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="myjobistogetintheway"></div>
+        <div id="stream-widget-container"></div>
         <script type="text/javascript">
             greenColour = '#44DB4E'
             if(window.location.pathname == '/')
@@ -57,7 +66,7 @@
         {% endblock content %}
         <div id="lower-bar">
             <a class="social-hook main-point" target="_blank" href="https://github.com/OpenGovAus/legistream-site"><img alt="GitHub Logo" class="logo" src="{% static 'legistream/img/gh-logo.webp' %}">View code on GitHub</a>
-            <a class="social-hook main-point" target="_blank" href="https://twitter.com/intent/tweet?text=Check%20out%20Legistream%20at%20https://legistream.org%20%0A%0A%23auspol%20%23ausdev"><img alt="Twitter logo" class="logo" src="{% static 'legistream/img/twitter-logo.webp' %}">Share on Twitter</a>
+            <a id="tweet" class="social-hook main-point" target="_blank" href="https://twitter.com/intent/tweet?text=Check%20out%20Legistream%20at%20https://legistream.org%20%0A%0A%23auspol%20%23ausdev"><img alt="Twitter logo" class="logo" src="{% static 'legistream/img/twitter-logo.webp' %}">Share on Twitter</a>
         </div>
     </body>
 </html>

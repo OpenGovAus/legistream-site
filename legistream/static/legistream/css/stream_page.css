@@ -3,21 +3,6 @@
     cursor: default;
 }
 
-#logo-text {
-    font-size: 55pt;
-    text-transform: uppercase;
-    margin-top: 60pt;
-    padding-bottom: 10pt;
-}
-
-#streams-block {
-    padding: 0 90px;
-    margin-left: 30pt;
-    margin-right: 30pt;
-    padding-bottom: 10pt;
-    display: flex;
-}
-
 #right {
     transform: scaleX(-1);
 }
@@ -25,6 +10,7 @@
 .scroll-btn {
     height: 50px;
     align-self: center;
+    z-index: 0;
 }
 
 .scroll-btn:hover {
@@ -55,19 +41,11 @@
 .stream-thumb:hover {
     transform: scale(1.05);
     cursor: pointer;
+    z-index: 0;
 }
 
 .video-container {
     padding: 30px;
-}
-
-#youcrazypeople {
-    text-align: center;
-    justify-items: center;
-    justify-content: center;
-    align-content: center;
-    display: flex;
-    padding-top: 20px;
 }
 
 .stream-thumb {
@@ -93,4 +71,68 @@
 
 .stream-label:hover {
     cursor: pointer;
+}
+
+#logo-text {
+    text-transform: uppercase;
+}
+
+@media only screen and (min-resolution: 165dpi) and (max-resolution: 168dpi), only screen and (min-resolution: 155dpi) and (max-resolution: 160dpi), only screen and (min-resolution: 134dpi) and (max-resolution: 144dpi), only screen and (min-resolution: 120dpi) and (max-resolution: 130dpi), only screen and (max-resolution: 116dpi) {
+    .big-thumb {
+        width: 600px;
+    }
+
+    .small-thumb {
+        width: 400px;
+    }
+
+    #youcrazypeople {
+        text-align: center;
+        justify-items: center;
+        justify-content: center;
+        align-content: center;
+        display: flex;
+        padding-top: 20px;
+    }
+
+    #logo-text {
+        margin-top: 60pt;
+        font-size: 55pt;
+        padding-bottom: 10pt;
+    }
+    
+    #streams-block {
+        padding: 0 90px;
+        margin-left: 30pt;
+        margin-right: 30pt;
+        padding-bottom: 10pt;
+        display: flex;
+    }
+}
+
+@media only screen and (min-resolution: 117dpi) and (max-resolution: 119dpi), only screen and (min-resolution: 131dpi) and (max-resolution: 133dpi), only screen and (min-resolution: 145dpi) and (max-resolution: 154dpi), only screen and (min-resolution: 162dpi) and (max-resolution: 164dpi), only screen and (min-resolution: 169dpi) {
+    .stream-thumb {
+        width: 250px;
+    }
+
+    .video-container {
+        padding: 30px 30px 0px 30px;
+    }
+
+    #logo-text {
+        font-size: 50px;
+        margin: 100px 10px 0px 10px;
+    }
+
+    #streams-padding {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .stream-label {
+        font-size: 15px;
+    }
 }

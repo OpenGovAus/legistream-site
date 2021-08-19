@@ -72,3 +72,21 @@
 #grn-break:hover {
     cursor: pointer;
 }
+
+@media only screen and (min-resolution: 117dpi) and (max-resolution: 119dpi), only screen and (min-resolution: 131dpi) and (max-resolution: 133dpi), only screen and (min-resolution: 145dpi) and (max-resolution: 154dpi), only screen and (min-resolution: 162dpi) and (max-resolution: 164dpi), only screen and (min-resolution: 169dpi) {
+    #info-block p {
+        font-size: 110%;
+    }
+
+    #info-block {
+        width: 70%;
+    }
+
+    #scroll-top {
+        margin-right: -30px;
+    }
+
+    #scroll-top img {
+        height: 15px;
+    }
+}
