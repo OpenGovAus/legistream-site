@@ -2,137 +2,120 @@
     text-align: center;
     cursor: default;
 }
-
 #right {
     transform: scaleX(-1);
 }
-
-.scroll-btn {
-    height: 50px;
-    align-self: center;
-    z-index: 0;
-}
-
 .scroll-btn:hover {
     opacity: 0.7;
     cursor: pointer;
 }
-
 #streams-padding {
     overflow-x: hidden;
     display: flex;
     align-items: center;
-    align-content: center;
 }
-
 #stream-video-container {
     display: flex;
-    align-content: center;
     align-items: center;
     justify-content: center;
 }
-
 .stream-container {
     justify-content: center;
     align-items: center;
-    align-content: center;
 }
-
 .stream-thumb:hover {
     transform: scale(1.05);
     cursor: pointer;
     z-index: 0;
 }
-
 .video-container {
     padding: 30px;
 }
-
 .stream-thumb {
     display: block;
     margin-left: auto;
     margin-right: auto;
     padding: 30px;
 }
-
 .social {
     font-family: dosis;
     font-size: 30pt;
     float: right;
 }
-
 .stream-label {
     text-align: center;
-    font-family: pn-regular;   
+    font-family: pn-regular;
     font-size: 15pt;
     color: rgb(223,223,223);
     cursor: default;
 }
-
 .stream-label:hover {
     cursor: pointer;
 }
-
 #logo-text {
     text-transform: uppercase;
 }
-
 @media only screen and (min-resolution: 165dpi) and (max-resolution: 168dpi), only screen and (min-resolution: 155dpi) and (max-resolution: 160dpi), only screen and (min-resolution: 134dpi) and (max-resolution: 144dpi), only screen and (min-resolution: 120dpi) and (max-resolution: 130dpi), only screen and (max-resolution: 116dpi) {
     .big-thumb {
         width: 600px;
-    }
-
+   }
     .small-thumb {
         width: 400px;
-    }
-
+   }
     #youcrazypeople {
         text-align: center;
         justify-items: center;
         justify-content: center;
-        align-content: center;
         display: flex;
         padding-top: 20px;
-    }
-
+   }
     #logo-text {
         margin-top: 60pt;
         font-size: 55pt;
         padding-bottom: 10pt;
-    }
-    
+   }
     #streams-block {
         padding: 0 90px;
         margin-left: 30pt;
         margin-right: 30pt;
         padding-bottom: 10pt;
         display: flex;
-    }
+   }
+    .scroll-btn {
+        height: 50px;
+        align-self: center;
+        z-index: 0;
+   }
 }
-
 @media only screen and (min-resolution: 117dpi) and (max-resolution: 119dpi), only screen and (min-resolution: 131dpi) and (max-resolution: 133dpi), only screen and (min-resolution: 145dpi) and (max-resolution: 154dpi), only screen and (min-resolution: 162dpi) and (max-resolution: 164dpi), only screen and (min-resolution: 169dpi) {
+    .scroll-btn {
+        display: none;
+   }
     .stream-thumb {
         width: 250px;
-    }
-
+   }
     .video-container {
         padding: 30px 30px 0px 30px;
-    }
-
+   }
     #logo-text {
         font-size: 50px;
         margin: 100px 10px 0px 10px;
-    }
-
+   }
     #streams-padding {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         width: 100%;
-    }
-
+        overflow-y: scroll;
+        height: 368px;
+   }
     .stream-label {
-        font-size: 15px;
-    }
+        font-size: 13px;
+   }
+    #streams-block {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+   }
 }
