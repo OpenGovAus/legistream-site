@@ -51,26 +51,28 @@
     <div class="title-container">
         <h1 id="logo-text">{{ parl }} Parliament</h1>
     </div>
-    <div id="streams-block" {%if stream_amount > 3 %}style="justify-content: left;"{% endif %}>
-        {% if stream_urls %}
-            {% if stream_amount >= 3 %}
-                <img onclick="scrollSlide(-450);" class="scroll-btn" src="{% static 'legistream/img/back-button.webp' %}">
-            {% endif %}
-        <div id="streams-padding">
-            {% for stream in stream_urls %}
-                <div class="stream-container">
-                    <div class="video-container">
-                        <img alt="{{ stream.title }} Thumbnail" onclick="gen_widget('{{ stream.title }}', '{{ stream.url }}', '{{ stream.safe }}', `{% static 'legistream/img/back-button.webp' %}`);" id='{{ stream.safe }}' class="stream-thumb {% if stream_amount <= 2 %}big-thumb{% else %}small-thumb{% endif %}" src="{% static stream.thumb %}">                  
+    <div class="container-centre">
+        <div id="streams-block" {%if stream_amount > 3 %}style="justify-content: left;"{% endif %}>
+            {% if stream_urls %}
+                {% if stream_amount >= 3 %}
+                    <img onclick="scrollSlide(-450);" class="scroll-btn" src="{% static 'legistream/img/back-button.webp' %}">
+                {% endif %}
+            <div id="streams-padding">
+                {% for stream in stream_urls %}
+                    <div class="stream-container">
+                        <div class="video-container">
+                            <img alt="{{ stream.title }} Thumbnail" onclick="gen_widget('{{ stream.title }}', '{{ stream.url }}', '{{ stream.safe }}', `{% static 'legistream/img/back-button.webp' %}`);" id='{{ stream.safe }}' class="stream-thumb {% if stream_amount <= 2 %}big-thumb{% else %}small-thumb{% endif %}" src="{% static stream.thumb %}">                  
+                        </div>
+                        <p onclick="gen_widget('{{ stream.title }}', '{{ stream.url }}', '{{ stream.safe }}', `{% static 'legistream/img/back-button.webp' %}`);" class="stream-label">Stream: <strong onmouseover="displayTitle('{{ stream.full_title }}');">{{ stream.title }}</strong></p>
                     </div>
-                    <p onclick="gen_widget('{{ stream.title }}', '{{ stream.url }}', '{{ stream.safe }}', `{% static 'legistream/img/back-button.webp' %}`);" class="stream-label">Stream: <strong onmouseover="displayTitle('{{ stream.full_title }}');">{{ stream.title }}</strong></p>
-                </div>
-            {% endfor %}
-        </div>
-            {% if stream_amount >= 3 %}
-                <img id="right" onclick="scrollSlide(450);" class="scroll-btn" src="{% static 'legistream/img/back-button.webp' %}">
+                {% endfor %}
+            </div>
+                {% if stream_amount >= 3 %}
+                    <img id="right" onclick="scrollSlide(450);" class="scroll-btn" src="{% static 'legistream/img/back-button.webp' %}">
+                {% endif %}
+            {% else %}
+                    <p class="stream-label">This parliament is not currently broadcasting.</p>
             {% endif %}
-        {% else %}
-                <p class="stream-label">This parliament is not currently broadcasting.</p>
-        {% endif %}
+        </div>
     </div>
 {% endblock content %}

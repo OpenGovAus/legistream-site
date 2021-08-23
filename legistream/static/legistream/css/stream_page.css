@@ -105,7 +105,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
         width: 100%;
         overflow-y: scroll;
         height: 368px;
@@ -113,6 +112,10 @@
     .stream-label {
         font-size: 13px;
    }
+    .container-centre {
+        display: flex;
+        justify-content: center;
+    }
     #streams-block {
         margin-top: 20px;
         display: flex;
