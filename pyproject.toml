@@ -7,7 +7,7 @@ license = "AGPL-3.0-only"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-legistream-backend = "^1.4.17"
+legistream-backend = { git = "https://github.com/OpenGovAus/legistream-backend.git", branch = "not-spaghetti" }
 Django = "^3.2.6"
 celery = "^5.1.2"
 django-celery-beat = "^2.2.1"
