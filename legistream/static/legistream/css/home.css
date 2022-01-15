@@ -2,51 +2,53 @@
     font-family: 'gilroy';
     src: url('../fonts/Gilroy-ExtraBold.otf');
 }
-
 @font-face {
-    font-family: 'dosis';
-    src: url('../fonts/dosis.ttf');
+    font-family: 'pn-regular';
+    src: url('../fonts/pn-regular.woff2');
 }
-
+@font-face {
+    font-family: 'pn-light';
+    src: url('../fonts/pn-light.woff2');
+}
+::-moz-selection {
+   /* Code for Firefox */
+    color: white;
+    background: rgb(49, 161, 57);
+}
+::selection {
+    color: white;
+    background: rgb(49, 161, 57);
+}
 * {
     margin: 0;
     padding: 0;
     transition: all 0.2s ease;
+    scroll-behavior: smooth;
 }
-
 *,*:focus,*:hover{
     outline:none;
 }
-
 html {
     background-image: url('../img/bg-fedparl.webp');
     background-repeat: no-repeat;
     background-size:cover;
+    background-attachment: fixed;
     color: white;
 }
-
 .dropdown {
     display: flex;
-    justify-items: left;
-    margin-top: 20px;
+    position: fixed;
+    z-index: 1;
 }
-
 .parliament-dropdown {
     position: relative;
-    z-index: 10;
 }
-
 #stream-widget-container {
     position: absolute;
 }
-
-.dropdown-icn {
-    width: 15px;
-    margin-left: 4pt;
-    top: -4px;
-    position: relative;
+a {
+    text-decoration: none;
 }
-
 li {
     width: 100%;
     height: 100%;
@@ -54,148 +56,289 @@ li {
     justify-content: center;
     align-items: center;
     text-align: center;
+    font-family: pn-light;
+    border-radius: 60px;
+    margin-bottom: 5%;
+    border-color: white;
+    border-width: 2px;
+    border-style: solid;
+    background-color: rgb(23,23,23);
 }
-
-li:hover {
-    background-color: rgb(49, 161, 57);
-}
-
-.parl-hook:hover {
-    color: rgb(68, 219, 78);
-}
-
-.social-hook:hover {
-    color: rgb(68, 219, 78);
-}
-
-.social-hook {
-    padding-left: 10pt;
-}
-
-.dropdown-content {
-    color: rgb(223, 223, 223);
-    text-decoration: none;
-    width: 100%;
-    height: 100%;
-    padding: 10px 0px;
-}
-
-ul {
-    background-color: rgb(66, 66, 66);
-    position: absolute;
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-    width: 170px;
-    border-radius: 10px;
-    margin-left: 22pt;
-    margin-top: 5pt;
-    opacity: 0;
-    visibility: hidden;
-}
-
-.dropdown-link {
-    color: rgb(223, 223, 223);
-    text-decoration: none;
-}
-
-.dropdown-link:hover {
-    color: rgb(68, 219, 78);
-}
-
 button {
+    font-family: pn-regular;
     background-color: transparent;
     border: none;
+    border-style: solid;
     color: rgb(223, 223, 223);
-    padding-left: 45px;
+    border-radius: 60px;
+    border-width: 2px;
 }
-
-button, li {
-    font-family: dosis;
-    font-size: 25pt;
+.dropdown-icn {
+    position: relative;
 }
-
-.parliament-dropdown button:focus + ul {
-    opacity: 1;
-    transform: translateY(10px);
-    visibility: visible;
+.dropdown-icn {
+    width: 15px;
+    margin-left: 4pt;
+    top: -3px;
 }
-
-.parliament-dropdown button:focus img {
-    transform: rotate(180deg);
-    transform-origin: center center;
-}
-
-.parliament-dropdown button:hover {
-    color: rgb(68, 219, 78);
-    cursor: pointer;
-}
-
-a {
-    text-decoration: none;
-}
-
-#home-content {
-    text-align: center;
-    margin-top: 100pt;
-}
-
 #logo-text {
     font-family: gilroy;
-    font-size: 88px;
     color: rgb(223, 223, 223);
 }
-
+#home-content {
+    text-align: center;
+}
+.parl-msg {
+    font-family: pn-light;
+}
+#brand-hook-wink-wink {
+    color: rgb(223, 223, 223);
+    font-family: pn-light;
+    font-weight: normal;
+}
+strong {
+    color: rgb(68, 219, 78);
+}
+.main-point {
+    font-family: pn-regular;
+    color: rgb(223, 223, 223);
+    position: relative;
+}
+#OpenGovAus-title {
+    position: relative;
+    color: rgb(68, 219, 78);
+    font-family: gilroy;
+}
 #opengov-container {
     position: absolute;
     right: 25pt;
     top: 19px;
 }
-
-#OpenGovAus-title {
-    position: relative;
-    color: rgb(68, 219, 78);
-    font-size: 25pt;
-    font-family: gilroy;
+@media only screen and (min-resolution: 165dpi) and (max-resolution: 168dpi), only screen and (min-resolution: 155dpi) and (max-resolution: 160dpi), only screen and (min-resolution: 134dpi) and (max-resolution: 144dpi), only screen and (min-resolution: 120dpi) and (max-resolution: 130dpi), only screen and (max-resolution: 116dpi) {
+    .dropdown {
+        top: 20px;
+        margin-left: 60px;
+   }
+    li:hover {
+        border-color: rgb(68, 219, 78);
+   }
+    button {
+        margin-right: 50pt;
+        padding: 10px 22.5px;
+   }
+    li:hover a {
+        color: rgb(68, 219, 78);
+   }
+    .parl-hook:hover {
+        color: rgb(68, 219, 78);
+   }
+    .social-hook:hover {
+        color: rgb(68, 219, 78);
+   }
+    .social-hook {
+        z-index: 0;
+        padding-left: 10pt;
+   }
+    .dropdown-content {
+        color: rgb(223, 223, 223);
+        text-decoration: none;
+        width: 100%;
+        height: 100%;
+        padding: 10px 0px;
+   }
+    ul {
+        position: absolute;
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        width: 170px;
+        margin-left: 3.5px;
+        margin-top: 5pt;
+        opacity: 0;
+        visibility: hidden;
+   }
+    .dropdown-link {
+        color: rgb(223, 223, 223);
+        text-decoration: none;
+   }
+    button, li {
+        font-size: 15pt;
+   }
+    .parliament-dropdown button:focus + ul {
+        opacity: 1;
+        transform: translateY(10px);
+        visibility: visible;
+   }
+    .parliament-dropdown button:focus img {
+        transform: rotate(90deg);
+        transform-origin: center center;
+   }
+    #parl-btn {
+        width: 175px;
+   }
+    .parliament-dropdown button:hover, #home-btn:hover {
+        color: rgb(68, 219, 78);
+        cursor: pointer;
+   }
+    #home-content {
+        margin-top: 150pt;
+   }
+    #logo-text {
+        font-size: 88px;
+   }
+    #logo-text:hover {
+        color: rgb(199, 199, 199);
+   }
+    #OpenGovAus-title {
+        font-size: 25pt;
+   }
+    #OpenGovAus-title:hover {
+        color: rgb(49, 161, 57);
+   }
+    .main-point {
+        font-size: 25px;
+   }
+    .logo {
+        height: 25px;
+        padding-right: 7px;
+   }
+    #lower-bar {
+        position: absolute;
+        bottom: 25px;
+        left: 30px;
+   }
+    #live-parls {
+        text-align: center;
+   }
+    #brand-hook-wink-wink {
+        font-size: 40pt;
+        padding-top: 10px;
+        padding-bottom: 40px;
+        cursor: default;
+   }
+    .parl-msg {
+        font-size: 25px;
+        cursor: default;
+   }
 }
-
-#OpenGovAus-title:hover {
-    color: rgb(49, 161, 57);
-}
-
-.main-point {
-    font-family: dosis;
-    font-size: 25px;
-    color: rgb(223, 223, 223);
-    position: relative;
-}
-
-.logo {
-    height: 25px;
-    padding-right: 7px;
-}
-
-#lower-bar {
-    position: absolute;
-    bottom: 25px;
-    left: 30px;
-}
-
-#live-parls {
-    text-align: center;
-}
-
-#brand-hook-wink-wink {
-    color: rgb(223, 223, 223);
-    font-family: dosis;
-    font-weight: normal;
-    font-size: 40pt;
-    padding-top: 10px;
-    padding-bottom: 40px;
-}
-
-strong {
-    color: rgb(68, 219, 78);
+@media only screen and (min-resolution: 117dpi) and (max-resolution: 119dpi), only screen and (min-resolution: 131dpi) and (max-resolution: 133dpi), only screen and (min-resolution: 145dpi) and (max-resolution: 154dpi), only screen and (min-resolution: 162dpi) and (max-resolution: 164dpi), only screen and (min-resolution: 169dpi) {
+    #logo-text {
+        font-size: 50px;
+   }
+    nav {
+        visibility: hidden;
+        opacity: 0.0;
+        position: absolute;
+        z-index: 5;
+   }
+    .parliament-dropdown {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+   }
+    nav button {
+        width: 200px;
+        padding: 10px 10px;
+        font-size: 150%;
+        margin-bottom: 40px;
+        background-color: rgb(23, 23, 23);
+   }
+    nav ul {
+        margin-top: -20px;
+   }
+    nav li {
+        width: 150px;
+        height: 30px;
+        flex-direction: column;
+   }
+    nav li a {
+        width: 100%;
+        color: rgb(223, 223, 223);
+   }
+    .dropdown-icn {
+        display: none;
+   }
+    .dropdown {
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+   }
+    #home-content {
+        margin-top: 100px;
+   }
+    button {
+        padding: 5px 10px;
+        padding-right: 20px;
+   }
+    #brand-hook-wink-wink {
+        font-size: 25px;
+        padding: 0px 40px;
+   }
+    .parl-msg {
+        margin-top: 50px;
+        font-size: 20px;
+   }
+    .myjobistogetintheway {
+        background-color: rgb(16,16,16);
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        visibility: hidden;
+   }
+    .menubtncontainer {
+        cursor: pointer;
+        z-index: 0;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        margin-left: 5%;
+        margin-top: -20%;
+   }
+    .menu_opener {
+        display: flex;
+        height: 2px;
+        background-color: rgb(68, 219, 78);
+   }
+    .menu_opener::before, .menu_opener::after {
+        content: '';
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background-color: rgb(68, 219, 78);
+   }
+    .menu_opener::before {
+        transform: translateY(-10px);
+   }
+    .menu_opener::after {
+        transform: translateY(10px);
+   }
+   /* Magic menu magic */
+    .menucontainer.menuopen .fullmenu {
+        visibility: visible;
+        opacity: 1;
+        left: 0;
+   }
+    #lower-bar {
+        position: absolute;
+        bottom: 30px;
+   }
+    .social-hook img {
+        height: 20px;
+        visibility: visible;
+        margin-left: 30px;
+   }
+    #tweet {
+        position: absolute;
+        left: 60px;
+   }
+    .social-hook {
+        visibility: hidden;
+   }
 }

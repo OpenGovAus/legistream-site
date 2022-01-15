@@ -1,6 +1,6 @@
 # legistream (legistream-site)
 
-![Legistream Screenshot](/gh-images/f11-ss.png)
+![Legistream Screenshot](/.github/img/f11-ss.png)
 
 Legistream is the easiest way to stream Australian parliaments live. Legistream bypasses the need to use the often slow and outdated state/territory parliament websites, streamlining the experience. Legistream also bypasses the need to use a Flash player on both the NT and QLD websites, offering a more secure viewing option for people interested in those jurisdictions.
 
@@ -14,40 +14,19 @@ Legistream uses our Python package [legistream-backend](https://github.com/OpenG
 
 You can find instructions for different hosts [here](https://www.rabbitmq.com/download.html).
 
-## Virtual Environment
+## Poetry
 
-Begin by setting up a virtual environment:
+Install `poetry` with `pip`:
 
-```sh
-pip3 install virtualenv
-```
-```sh
-virtualenv legistr_venv
-```
-
-##### Windows
-
-```sh
-legistr_venv/Scripts/activate
-```
-
-##### Linux/MacOS
-
-```sh
-source legistr_venv/bin/activate
-```
-
-You should now be loaded into the virtual environment, and your terminal should look like this:
-
-```
-(legistr_venv) /.../git/legistream-site/ >
-```
+    ```sh
+    pip3 install poetry
+    ```
 
 ## Install Dependencies
 
-```sh
-pip3 install -r requirements.txt
-```
+    ```sh
+    poetry update
+    ```
 
 ## Create secrets.py
 
@@ -79,25 +58,35 @@ DEBUG = True
 On first run:
 
 ```sh
-python3 manage.py migrate
+poetry run python3 manage.py makemigrations legistream
+```
+
+```sh
+poetry run python3 manage.py migrate
+```
+
+Clear pending tasks:
+
+```sh
+poetry run celery -A legistream_site purge
 ```
 
 Start the Celery worker:
 
 ```sh
-celery -A legistream_site worker -l info --pool=solo
+poetry run celery -A legistream_site worker -l info --pool=solo
 ```
 
 Start Celery Beat:
 
 ```sh
-celery -A legistream_site beat -l info
+poetry run celery -A legistream_site beat -l info
 ```
 
 To run the server, use this command:
 
 ```sh
-python3 manage.py runserver --insecure
+poetry run python3 manage.py runserver --insecure
 ```
 
 If you get any errors, make sure you've set up your virtual environment correctly and that you've installed all the required dependencies.

@@ -1,132 +1,81 @@
+from hashlib import md5
+from django.urls import resolve
 from django.shortcuts import render
-from . import statuscheck
+
+
+from .status_checker import statuscheck
+
 
 def grammarfy(parl_list):
     if(len(parl_list) == 1):
-        parl_list[0]['parl'] = '%s.' % (parl_list[0]['parl'])
+        parl_list.append({'parl': '.', 'url': None})
         return(parl_list)
     try:
+        new_list = []
         for parl in parl_list[:-1]:
-            parl['parl'] = '%s, ' % (parl['parl'])
-        parl_list[-1]['parl'] = 'and %s.' % (parl_list[-1]['parl'])
-        return(parl_list)
-    except:
+            new_list.append(parl)
+            new_list.append({'parl': ', ', 'url': None})
+        new_list.append({'parl': 'and ', 'url': None})
+        new_list.append(parl_list[-1])
+        return(new_list)
+    except Exception:
         return([])
+
 
 def gen_context():
     live_parls = []
     for parliament in statuscheck.check_statuses():
         if(parliament['stat']):
-            dummy = parliament
-            live_parls.append(dummy)
+            live_parls.append(parliament)
     return {
         'dropdown_list': statuscheck.check_statuses(),
         'live_parls': grammarfy(live_parls),
     }
+
 
 def home(request):
     context = gen_context()
     context['title'] = 'Home'
     return(render(request, 'legistream/homepage.html', context=context))
 
-def act(request):
-    from . import act
+
+def watch(request):
     context = gen_context()
-    context['stream_urls'] = act.act_urls
-    context['parl'] = act.parl_title
-    context['title'] = 'ACT Parliament'
-    context['stream_amount'] = len(context['stream_urls'])
+    parl_mod = resolve(request.path_info) \
+        .url_name.replace('-parliament', '')
 
-    return(render(request, 'legistream/stream_page.html', context=context))
+    try:
+        exec(f'from legistream_backend.site.{parl_mod} import '
+             f'{parl_mod.upper()}StreamExtractor as StreamExtr'
+             f'actor', globals())
 
-def federal(request):
-    from . import fed
-    context = gen_context()
-    context['stream_urls'] = fed.fed_urls
-    context['parl'] = fed.parl_title
-    context['title'] = 'Federal Parliament'
-    context['stream_amount'] = len(context['stream_urls'])
+        stream_obj = StreamExtractor()
+        streams = stream_obj.streams
 
-    return(render(request, 'legistream/stream_page.html', context=context))
+        context['stream_urls'] = []
+        for stream in streams:
+            if stream.is_live:
+                if len(stream.title) >= 46:
+                    stream_title = stream.title[:43] + '...'
+                else:
+                    stream_title = stream.title
 
-def nsw(request):
-    from . import nsw
-    context = gen_context()
-    context['stream_urls'] = nsw.nsw_urls
-    context['parl'] = nsw.parl_title
-    context['title'] = 'NSW Parliament'
-    context['stream_amount'] = len(context['stream_urls'])
+                context['stream_urls'].append(
+                    {
+                        'url': stream.url,
+                        'title': stream_title,
+                        'full_title': stream.title,
+                        'safe': md5(stream.title.lower()
+                                    .replace(' ', '-').encode()).hexdigest(),
+                        'thumb': f'/legistream/img/thumbs/{stream.thumb}'
+                    }
+                )
 
-    return(render(request, 'legistream/stream_page.html', context=context))
+        context['parl'] = stream_obj.extractor_name
+        context['title'] = f'{stream_obj.extractor_name} Parliament'
+        context['stream_amount'] = len(context['stream_urls'])
 
-def nt(request):
-    from . import nt
-    context = gen_context()
-    context['stream_urls'] = nt.nt_urls
-    context['parl'] = nt.parl_title
-    context['title'] = 'NT Parliament'
-    context['stream_amount'] = len(context['stream_urls'])
-
-    return(render(request, 'legistream/stream_page.html', context=context))
-
-def qld(request):
-    from . import qld
-    context = gen_context()
-    context['stream_urls'] = qld.qld_urls
-    context['parl'] = qld.parl_title
-    context['title'] = 'QLD Parliament'
-    context['stream_amount'] = len(context['stream_urls'])
-
-    return(render(request, 'legistream/stream_page.html', context=context))
-
-def sa(request):
-    #from . import sa
-    #context = {
-    #    'stream_urls': sa.sa_urls,
-    #    'parl': sa.parl_title,
-    #    'title': 'SA'
-    #}
-
-    context = {}
-
-    return(render(request, 'legistream/vic_tas.html', context=context))
-
-def tas(request):
-    from . import tas
-    context = gen_context()
-    context['stream_urls'] = tas.tas_urls
-    context['parl'] = tas.parl_title
-    context['title'] = 'Tasmania Parliament'
-
-    return(render(request, 'legistream/stream_page.html', context=context))
-
-def vic(request):
-    from . import vic
-    context = gen_context()
-    context['stream_urls'] = vic.vic_urls
-    context['parl'] = vic.parl_title
-    context['title'] = 'Victoria Parliament'
-
-    return(render(request, 'legistream/stream_page.html', context=context))
-
-def wa(request):
-    from . import wa
-    context = gen_context()
-    context['stream_urls'] = wa.wa_urls
-    context['parl'] = wa.parl_title
-    context['title'] = 'WA Parliament'
-
-    return(render(request, 'legistream/stream_page.html', context=context))
-
-def demoparl(request):
-    context = gen_context()
-    context['stream_urls'] = [{'url': 'http://video.parliament.act.gov.au/vod/amlst:ASSEMBLY_13-08-13_3/playlist.m3u8?DVR', 'title': 'nothin', 'safe': 'nothin'}, {'url': 'http://video.parliament.act.gov.au/vod/amlst:ASSEMBLY_20-08-20_1/playlist.m3u8?DVR', 'title': 'Stream 1', 'safe': 'strm1'}, {'url': 'http://video.parliament.act.gov.au/vod/amlst:ASSEMBLY_30-07-20_1/playlist.m3u8?DVR', 'title': 'Stream 2', 'safe': 'strm2'}]
-    context['parl'] = 'Not a'
-    context['title'] = 'demoparl'
-    context['stream_amount'] = len(context['stream_urls'])
-
-    return(render(request, 'legistream/stream_page.html', context=context))
-
-def info(request):
-    context = gen_context()
-    return(render(request, 'legistream/info.html', context=context))
+        return render(request, 'legistream/stream_page.html', context=context)
+    except Exception as e:
+        raise Exception(f'\nAn error ocurred when trying to render the'
+                        f' {parl_mod.upper()} page;\n\n{str(e)}.')

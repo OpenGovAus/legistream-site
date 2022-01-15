@@ -1,0 +1,75 @@
+#home-info {
+    position: absolute;
+    top: calc(100% - 10px);
+    z-index: -1;
+}
+#scroll-top {
+    rotate: 90deg;
+    position: absolute;
+    border-radius: 15px;
+    bottom: 65px;
+    right: 35px;
+    padding-left: 20px;
+}
+#scroll-top:hover {
+    color: rgb(68, 219, 78);
+    cursor: pointer;
+}
+#scroll-top img {
+    height: 30px;
+    padding-top: 22%;
+}
+#info-block {
+    width: 48%;
+}
+#info-block h1, #info-block h2 {
+    font-family: gilroy;
+}
+#info-block h1 {
+    font-size: 300%;
+}
+#info-block h2 {
+    font-size: 200%;
+    margin-top: 20px;
+}
+#info-block p {
+    font-family: pn-light;
+    font-size: 150%;
+}
+#info-block a {
+    color: rgb(68, 219, 78);
+}
+#info-block a:hover {
+    color: rgb(49, 161, 57);
+}
+.dark-div {
+    display: flex;
+    background-color: rgb(16,16,16);
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 50px;
+}
+#grn-break {
+    width: 100%;
+    height: 10px;
+    background-color: rgb(68, 219, 78);
+    margin-bottom: 50px;
+}
+#grn-break:hover {
+    cursor: pointer;
+}
+@media only screen and (min-resolution: 117dpi) and (max-resolution: 119dpi), only screen and (min-resolution: 131dpi) and (max-resolution: 133dpi), only screen and (min-resolution: 145dpi) and (max-resolution: 154dpi), only screen and (min-resolution: 162dpi) and (max-resolution: 164dpi), only screen and (min-resolution: 169dpi) {
+    #info-block p {
+        font-size: 110%;
+   }
+    #info-block {
+        width: 70%;
+   }
+    #scroll-top {
+        margin-right: -30px;
+   }
+    #scroll-top img {
+        height: 15px;
+   }
+}
