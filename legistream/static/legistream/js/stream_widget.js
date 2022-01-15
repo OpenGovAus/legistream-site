@@ -1,4 +1,4 @@
-var player = '';
+let player = '';
 let isMobile = false;
 
 
@@ -88,7 +88,7 @@ var gen_widget = (stream_title, stream_url, stream_safe, back_btn_loc) => {
                 }
             </style>
             <h1 id="stream-text">${stream_title.toUpperCase()}</h1>
-            <button id="back-btn" onclick="close_widget('${stream_safe}')">
+            <button id="back-btn">
                 <img id="back-btn-img" src="${back_btn_loc}">
                 Back
             </button>
@@ -130,7 +130,7 @@ var gen_widget = (stream_title, stream_url, stream_safe, back_btn_loc) => {
                 }
             </style>
             <h1 id="stream-text">${stream_title.toUpperCase()}</h1>
-            <button id="back-btn" onclick="close_widget('${stream_safe}')">
+            <button id="back-btn">
                 <img id="back-btn-img" src="${back_btn_loc}">
                 Back
             </button>
@@ -144,4 +144,12 @@ var gen_widget = (stream_title, stream_url, stream_safe, back_btn_loc) => {
         </video>`
     );
     playVideo(stream_safe);
+    let clickBox = function(data) {
+        let bBox = $('video')[0].getBoundingClientRect();
+        if(!(data.clientY >= bBox.top && data.clientY <= bBox.bottom && data.clientX >= bBox.left && data.clientX <= bBox.right)) {
+            close_widget(stream_safe);
+            document.removeEventListener('click', clickBox);
+        };
+    }
+    document.addEventListener('click', clickBox)        
 };
